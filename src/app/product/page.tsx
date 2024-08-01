@@ -1,7 +1,6 @@
-import Image from "next/image";
 import styles from "./page.module.scss";
 
-export default function HomePage() {
+export default function ProductPage() {
   return (
     <main className={styles.main}>
     </main>
