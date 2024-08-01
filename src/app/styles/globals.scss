@@ -1,15 +1,15 @@
 @use '/src/app/styles/constants';
 
-:root{
+:root {
   height: 100%;
 
   font-family: constants.$inter;
   color: constants.$bodyColor;
 
   * {
-      box-sizing: border-box;
-      padding: 0;
-      margin: 0;
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
   }
 
 
@@ -27,30 +27,36 @@
     font-size: constants.$h3;
     color: constants.$h2Color;
   }
-  
+
   h4 {
     font-size: constants.$h4;
-    color: constants.$h2Color;            
+    color: constants.$h2Color;
+  }
+
+  h5 {
+    font-size: constants.$h5;
+    color: constants.$h2Color;
+  }
+
+  h6 {
+    font-size: constants.$h6;
+    color: constants.$h2Color;
   }
 
   body {
-        margin: 0;
-        height: inherit;
+    margin: 0;
+    height: inherit;
   }
 
   button {
-    &:hover{
-        cursor: pointer;
+    &:hover {
+      cursor: pointer;
     }
   }
-  
+
   a {
     text-decoration: none;
     color: constants.$bodyColor;
     font-weight: 600;
-
-    &:hover{
-        color: rgba(constants.$primaryColor, .75);
-    }
   }
 }

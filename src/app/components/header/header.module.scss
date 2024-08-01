@@ -1,0 +1,19 @@
+@use '/src/app/styles/constants';
+
+.appBar {
+    width: 100%;
+    background-color: constants.$baseColor;
+    padding: 0 1rem;
+
+    .logo {
+        margin: 0.5rem 0;
+        height: 100%;
+        width: 100%;
+    }
+
+    .pageBtns {
+        a {
+            margin-right: 1rem;
+        }
+    }
+}

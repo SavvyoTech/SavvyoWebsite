@@ -1,6 +1,10 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
 
+// Fonts
+
 $inter: 'Inter', sans-serif;
+
+// Colors
 
 $baseColor: #ffffff;
 $primaryColor: #101828;
@@ -10,13 +14,16 @@ $ternaryColor: #D0D5DD;
 $h2Color: #475467;
 $bodyColor: #101828;
 
-$h1: 3.75rem;
-$h2: 3rem;
-$h3: 2.25rem;
-$h4: 1.5rem;
+// Font sizes
+
+$h1: 4.5rem;
+$h2: 3.75rem;
+$h3: 3rem;
+$h4: 2.25rem;
+$h5: 1.875rem;
+$h6: 1.5rem;
 
 $body: 1rem;
 $bodySmall: 0.875rem;
 $bodyXSmall: 0.75rem;
 $bodyLarge: 1.25rem;
-

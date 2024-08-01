@@ -1,15 +1,34 @@
-import React from 'react';
-import AppBar from '@mui/material/AppBar';
-import Toolbar from '@mui/material/Toolbar';
-import Typography from '@mui/material/Typography';
-import IconButton from '@mui/material/IconButton';
-import { Box, Button } from '@mui/material';
-import Image from 'next/image';
 import Link from 'next/link';
+import React from 'react';
+import Image from 'next/image';
+import { usePathname } from 'next/navigation';
+
+import { AppBar, Box, Button, Toolbar } from '@mui/material';
+
+import styles from './header.module.scss';
 
 const Header: React.FC = () => {
+    const pathname = usePathname();
+    
     return (
-        <></>
+        <AppBar component={'header'}>
+            <Toolbar className={styles.appBar}>
+                <Box>
+                    <Link href="/">
+                        <Image src="/logo.svg" alt="Savvyo Logo" width={80} height={80} className={styles.logo} />
+                    </Link>
+                </Box>
+                <Box sx={{ flexGrow: 1 }}>
+                </Box>
+                <Box className={styles.pageBtns}>
+                    <Link href="/"><Button>Home</Button></Link>
+                    <Link href="/product"><Button>Product</Button></Link>
+                    <Link href="/community"><Button>Community</Button></Link>
+                    <Link href="/about"><Button>Who We Are</Button></Link>
+                    <Link href="/careers"><Button>Join Us</Button></Link>
+                </Box>
+            </Toolbar>
+        </AppBar>
     );
 };
 
