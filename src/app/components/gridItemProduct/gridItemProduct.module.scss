@@ -1,0 +1,20 @@
+@use "/src/app/styles/constants";
+
+.gridItem {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  width: 100%;
+
+  h6 {
+    color: constants.$primaryColor;
+    margin-top: 20px;
+    font-weight: 600;
+    font-size: constants.$bodyXLarge;
+  }
+  p {
+    margin-top: 8px;
+    color: constants.$h2Color;
+    line-height: 1.875rem;
+  }
+}

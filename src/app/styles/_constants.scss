@@ -1,15 +1,15 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap");
 
 // Fonts
 
-$inter: 'Inter', sans-serif;
+$inter: "Inter", sans-serif;
 
 // Colors
 
 $baseColor: #ffffff;
 $primaryColor: #101828;
-$secondaryColor: #F40009;
-$ternaryColor: #D0D5DD;
+$secondaryColor: #f40009;
+$ternaryColor: #d0d5dd;
 
 $h2Color: #475467;
 $bodyColor: #101828;
@@ -23,7 +23,8 @@ $h4: 2.25rem;
 $h5: 1.875rem;
 $h6: 1.5rem;
 
-$body: 1rem;
-$bodySmall: 0.875rem;
-$bodyXSmall: 0.75rem;
-$bodyLarge: 1.25rem;
+$bodyXLarge: 1.25rem; //text-xl
+$bodyLarge: 1.125rem; //text-lg
+$body: 1rem; //text-md
+$bodySmall: 0.875rem; // text-sm
+$bodyXSmall: 0.75rem; // text-xs
