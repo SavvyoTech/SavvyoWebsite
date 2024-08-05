@@ -1,0 +1,20 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: savyo-web
+  namespace: prod
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: savyoweb
+  template:
+    metadata:
+      labels:
+        app: savyoweb
+    spec:
+      containers:
+      - name: savyoweb
+        image: 014498627182.dkr.ecr.us-east-1.amazonaws.com/savyo-web:latest
+        ports:
+        - containerPort: 3000
