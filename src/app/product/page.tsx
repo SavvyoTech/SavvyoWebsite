@@ -6,7 +6,7 @@ import GridItemProduct from "../components/gridItemProduct/gridItemProduct";
 import { Button } from "@mui/material";
 import Link from "next/link";
 
-export const GridItem = ({
+const GridItem = ({
   title,
   desc1,
   desc2,
