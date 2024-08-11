@@ -18,3 +18,4 @@ spec:
         image: 014498627182.dkr.ecr.us-east-1.amazonaws.com/savyo-web:latest
         ports:
         - containerPort: 3000
+        imagePullPolicy: Always

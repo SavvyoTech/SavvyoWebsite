@@ -15,16 +15,17 @@ const Header: React.FC = () => {
             <Toolbar className={styles.appBar}>
                 <Box>
                     <Link href="/">
-                        <Image src="/logo.svg" alt="Savvyo Logo" width={80} height={80} className={styles.logo} />
+                        <Image src="/logo_48.svg" alt="Savvyo Logo" width={80} height={80} className={styles.logo} />
                     </Link>
                 </Box>
                 <Box sx={{ flexGrow: 1 }}>
                 </Box>
                 <Box className={styles.pageBtns}>
                     <Link href="/"><Button>Home</Button></Link>
-                    <Link href="/product"><Button>Product</Button></Link>
-                    <Link href="/community"><Button>Community</Button></Link>
-                    <Link href="/about"><Button>Who We Are</Button></Link>
+                    <Link href="/product"><Button>Our Product</Button></Link>
+                    <Link href="/seller"><Button>Become a Seller</Button></Link>
+                    <Link href="/about"><Button>About Us</Button></Link>
+                    <Link href="/blogs"><Button>Blogs</Button></Link>
                     <Link href="/careers"><Button>Join Us</Button></Link>
                 </Box>
             </Toolbar>

@@ -17,21 +17,21 @@ const Footer: React.FC = () => {
                 </Box>
                 <Box className={styles.linkSection}>
                     <Grid2 className={styles.footerLinkGrid}>
-                        <Typography variant={"h6"}>Company</Typography>
+                        <Typography variant={"body1"}>Company</Typography>
                         <Link href={"/"}><Button>About</Button></Link>
                         <Link href={"/"}><Button>Features</Button></Link>
                         <Link href={"/"}><Button>Works</Button></Link>
                         <Link href={"/"}><Button>Careers</Button></Link>
                     </Grid2>
                     <Grid2 className={styles.footerLinkGrid}>
-                        <Typography variant={"h6"}>Help</Typography>
+                        <Typography variant={"body1"}>Help</Typography>
                         <Link href={"/"}><Button>Contact us</Button></Link>
                         <Link href={"/"}><Button>Delivery Details</Button></Link>
                         <Link href={"/"}><Button>Terms & Conditions</Button></Link>
                         <Link href={"/"}><Button>Privacy Policy</Button></Link>
                     </Grid2>
                     <Grid2 className={styles.footerLinkGrid}>
-                        <Typography variant={"h6"}>Resources</Typography>
+                        <Typography variant={"body1"}>Resources</Typography>
                         <Link href={"/"}><Button>How to - Blog</Button></Link>
                         <Link href={"/"}><Button>For sellers</Button></Link>
                         <Link href={"/"}><Button>Partner with us</Button></Link>
@@ -41,7 +41,7 @@ const Footer: React.FC = () => {
             </Box>
             <hr />
             <Box className={styles.footerLower}>
-                <Typography variant={"body2"}>© 2024 Savyo | <Link href={"mailto:info@savyo.in"}>info@savyo.in</Link></Typography>
+                <Typography variant={"body2"}>© 2024 Savvyo | <Link href={"mailto:info@savvyo.in"}>info@savvyo.in</Link></Typography>
             </Box>
        </Grid2>
     );
