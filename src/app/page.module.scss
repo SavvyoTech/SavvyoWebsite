@@ -26,18 +26,39 @@
         align-items: center;
         margin-bottom: 64px;
 
-        h2 {
-          color: constants.$primaryColor;
-          span {
+        div {
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          width: 100%;
+
+          h2 {
+            color: constants.$primaryColor;
+            text-align: end;
+            width: 100%;
+          }
+          div {
+            margin-left: 1rem;
+            font-size: constants.$h2;
+            font-weight: 600;
             color: constants.$secondaryColor;
+            display: flex;
+            justify-content: start;
           }
         }
+
+        // h2 {
+        //   color: constants.$primaryColor;
+        //   span {
+        //     color: constants.$secondaryColor;
+        //   }
+        // }
 
         .heroHeaderTitleScribble {
           z-index: 1;
           position: absolute;
           bottom: -15px;
-          left: 40%;
+          left: 50%;
         }
       }
 

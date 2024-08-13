@@ -6,6 +6,8 @@ import GridItemProduct from "../components/gridItemProduct/gridItemProduct";
 import { Button } from "@mui/material";
 import Link from "next/link";
 
+import { motion } from "framer-motion";
+
 const GridItem = ({
   title,
   desc1,
@@ -72,7 +74,12 @@ export default function ProductPage() {
   return (
     <main className={styles.main}>
       <section id="section1" className={styles.hero}>
-        <div className={styles.heroLeft}>
+        <motion.div
+          initial={{ opacity: 0, y: 50 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5, delay: 0.5, ease: "easeInOut" }}
+          className={styles.heroLeft}
+        >
           <h2>SAVVYO Products. For Everyone.</h2>
           <p>
             Transform how people form a social community with savvyo. The
@@ -141,15 +148,22 @@ export default function ProductPage() {
               </button>
             </div>
           </div>
-        </div>
+        </motion.div>
         <div className={styles.heroRight}>
-          <Image
-            src="/images/mac-pro.svg"
-            alt="hero image"
-            width={1024}
-            height={598}
+          <motion.div
             className={styles.heroRightImg}
-          />
+            initial={{ opacity: 0, x: "100%" }}
+            whileInView={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.5, delay: 0.5, ease: "easeInOut" }}
+          >
+            <Image
+              src="/images/mac-pro.svg"
+              alt="hero image"
+              width={1024}
+              height={598}
+              // className={styles.heroRightImg}
+            />
+          </motion.div>
         </div>
       </section>
 

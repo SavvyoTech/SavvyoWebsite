@@ -1,6 +1,10 @@
+"use client";
+
 import Image from "next/image";
 import styles from "./page.module.scss";
 import Link from "next/link";
+import { motion, useAnimation } from "framer-motion";
+import { useEffect, useState } from "react";
 
 const GridItem = ({
   title,
@@ -87,14 +91,53 @@ const BlogItem = ({
 };
 
 export default function HomePage() {
+  const [currentWord, setCurrentWord] = useState(0);
+
+  const controls = useAnimation();
+
+  const words = ["INNOVATION", "CHANGE", "REVOLUTION"];
+
+  useEffect(() => {
+    const sequence = async () => {
+      for (let i = 0; i < words.length; i++) {
+        await new Promise((resolve) => setTimeout(resolve, 1000)); // Wait for 1 second
+        await controls.start({ opacity: 1, transition: { duration: 0.5 } });
+        await new Promise((resolve) => setTimeout(resolve, 1000)); // Wait for 1 second
+        // Skip fade-out for the last word to keep it visible
+        if (i < words.length - 1) {
+          await controls.start({ opacity: 0, transition: { duration: 0.5 } });
+          setCurrentWord((prev) => prev + 1);
+        }
+      }
+    };
+
+    sequence();
+  }, [controls]);
+
   return (
     <main className={styles.main}>
-      <section id="section1" className={styles.hero}>
+      <motion.section
+        id="section1"
+        className={styles.hero}
+        initial={{ opacity: 0, y: 50 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        transition={{ duration: 1, ease: "easeInOut" }}
+      >
         <div className={styles.heroHeader}>
           <div className={styles.heroHeaderTitle}>
-            <h2>
+            {/* <h2>
               We are <span>INNOVATION</span>
-            </h2>
+            </h2> */}
+            <div>
+              <h2>We are</h2>
+              <motion.div
+                animate={controls}
+                initial={{ opacity: 0 }}
+                // style={{ fontSize: "2rem", textAlign: "center" }}
+              >
+                {words[currentWord]}
+              </motion.div>
+            </div>
             <Image
               src="/images/home/pen-scribble.svg"
               alt="pen-scribble"
@@ -229,9 +272,15 @@ export default function HomePage() {
             />
           </div>
         </div>
-      </section>
+      </motion.section>
 
-      <section id="section2" className={styles.whatWeOffer}>
+      <motion.section
+        initial={{ opacity: 0, y: 50 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.5, ease: "easeInOut" }}
+        id="section2"
+        className={styles.whatWeOffer}
+      >
         <div className={styles.marketPlaceHeader}>
           <div>
             <h4>
@@ -246,67 +295,131 @@ export default function HomePage() {
           </div>
         </div>
         <div className={styles.marketPlaceItems}>
-          <div className={styles.marketPlaceItemsDiv}>
-            <div className={styles.marketPlaceItemsDivGrid}>
+          <motion.div
+            className={styles.marketPlaceItemsDiv}
+            initial={{ opacity: 0, y: 50 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5, ease: "easeInOut" }}
+          >
+            <motion.div
+              initial={{ opacity: 0, x: "-100%" }}
+              whileInView={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.5, ease: "easeInOut" }}
+              className={styles.marketPlaceItemsDivGrid}
+            >
               <GridItem
                 title="Built on Community"
                 desc1="Savvyo is where people share and seek authentic opinions on all aspects of life. Unlike traditional social platforms, we focus on real experiences and insights. Connect, share, and learn in a community that values authenticity."
                 // desc2="Seasonal Fruits and Vegetables: Enjoy the best of each season with our handpicked selection of fruits and vegetables."
                 // icon="/icons/chat-icon.svg"
               />
-            </div>
-            <Image
-              src="/images/home/home-img1.svg"
-              alt="community image"
-              width={558}
-              height={426}
+            </motion.div>
+            <motion.div
+              initial={{ opacity: 0, x: "100%" }}
+              whileInView={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.5, ease: "easeInOut" }}
               className={styles.marketPlaceItemsImage}
-            />
-          </div>
-          <div className={styles.marketPlaceItemsDiv}>
-            <Image
-              src="/images/home/home-img2.svg"
-              alt="community image"
-              width={589}
-              height={426}
+            >
+              <Image
+                src="/images/home/home-img1.svg"
+                alt="community image"
+                width={558}
+                height={426}
+              />
+            </motion.div>
+          </motion.div>
+          <motion.div
+            className={styles.marketPlaceItemsDiv}
+            initial={{ opacity: 0, y: 50 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5, ease: "easeInOut" }}
+          >
+            <motion.div
+              initial={{ opacity: 0, x: "-100%" }}
+              whileInView={{ opacity: 1, x: 0 }}
+              transition={{ delay: 0.5, duration: 0.5, ease: "easeInOut" }}
               className={styles.marketPlaceItemsImage}
-            />
-            <div className={styles.marketPlaceItemsDivGrid}>
+            >
+              <Image
+                src="/images/home/home-img2.svg"
+                alt="community image"
+                width={589}
+                height={426}
+                // className={styles.marketPlaceItemsImage}
+              />
+            </motion.div>
+            <motion.div
+              initial={{ opacity: 0, x: "100%" }}
+              whileInView={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.5, ease: "easeInOut" }}
+              className={styles.marketPlaceItemsDivGrid}
+            >
               <GridItem
                 title="E-commerce for the Smartphone Era"
                 desc1="Savvyo combines a fun, engaging shopping experience with great prices. Adapted to users' habits and needs, our platform is versatile, offering both value for money and a vibrant community space."
                 // desc2="Snacks and Beverages: Find your favorite snacks, teas, and coffees for a perfect break or a quick refreshment."
                 // icon="/icons/lightning-icon.svg"
               />
-            </div>
-          </div>
-          <div className={styles.marketPlaceItemsDiv}>
-            <div className={styles.marketPlaceItemsDivGrid}>
+            </motion.div>
+          </motion.div>
+          <motion.div
+            initial={{ opacity: 0, y: 50 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5, ease: "easeInOut" }}
+            className={styles.marketPlaceItemsDiv}
+          >
+            <motion.div
+              initial={{ opacity: 0, x: "-100%" }}
+              whileInView={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.5, ease: "easeInOut" }}
+              className={styles.marketPlaceItemsDivGrid}
+            >
               <GridItem
                 title=" Team Buying for Better Deals"
                 desc1="Invite friends or form teams to get better prices. Savvyo enhances the social shopping experience, creating a sense of belonging. More users lead to better experiences, growing our community and services."
                 // desc2="Personal Care: High-quality personal care items, including skincare, haircare, and wellness products."
                 // icon="/icons/user-gen-icon.svg"
               />
-            </div>
-            <Image
-              src="/images/home/home-img3.svg"
-              alt="community image"
-              width={589}
-              height={426}
+            </motion.div>
+            <motion.div
+              initial={{ opacity: 0, x: "100%" }}
+              whileInView={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.5, ease: "easeInOut" }}
               className={styles.marketPlaceItemsImage}
-            />
-          </div>
-          <div className={styles.marketPlaceItemsDiv}>
-            <Image
-              src="/images/home/home-img4.svg"
-              alt="community image"
-              width={589}
-              height={426}
+            >
+              <Image
+                src="/images/home/home-img3.svg"
+                alt="community image"
+                width={589}
+                height={426}
+              />
+            </motion.div>
+          </motion.div>
+          <motion.div
+            initial={{ opacity: 0, y: 50 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5, ease: "easeInOut" }}
+            className={styles.marketPlaceItemsDiv}
+          >
+            <motion.div
+              initial={{ opacity: 0, x: "-100%" }}
+              whileInView={{ opacity: 1, x: 0 }}
+              transition={{ ease: "easeInOut" }}
               className={styles.marketPlaceItemsImage}
-            />
-            <div
+            >
+              <Image
+                src="/images/home/home-img4.svg"
+                alt="community image"
+                width={589}
+                height={426}
+              />
+            </motion.div>
+
+            <motion.div
               className={styles.marketPlaceItemsDivGrid}
+              initial={{ opacity: 0, x: "100%" }}
+              whileInView={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.5, ease: "easeInOut" }}
               // style={{ paddingRight: "96px" }}
             >
               <GridItem
@@ -315,12 +428,18 @@ export default function HomePage() {
                 // desc2="Accessories: Enhance your tech experience with top-notch accessories for all your devices."
                 // icon="/icons/lightning-icon.svg"
               />
-            </div>
-          </div>
+            </motion.div>
+          </motion.div>
         </div>
-      </section>
+      </motion.section>
 
-      <section id="section3" className={styles.CTA}>
+      <motion.section
+        initial={{ opacity: 0, y: 50 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.5, ease: "easeInOut" }}
+        id="section3"
+        className={styles.CTA}
+      >
         <div className={styles.whyJoinBtns}>
           <div className={styles.whyJoinBtnSection}>
             <div>
@@ -337,7 +456,7 @@ export default function HomePage() {
             </div>
           </div>
         </div>
-      </section>
+      </motion.section>
 
       <section id="section4" className={styles.community}>
         <div className={styles.whyJoinBtns}>
