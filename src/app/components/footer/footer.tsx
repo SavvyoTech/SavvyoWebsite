@@ -10,9 +10,20 @@ const Footer: React.FC = () => {
        <Grid2 component={"footer"} className={styles.footer}>
             <Box className={styles.footerUpper}>
                 <Box className={styles.logoSection}>
-                    <Image src={"./logo_dark.svg"} alt={"logo"} width={157.26} height={64} className={styles.logo} />
+                    <Link href={"/"}><Image src={"./logo_dark.svg"} alt={"logo"} width={157.26} height={64} className={styles.logo} /></Link>
                     <Box className={styles.socials}>
-                        {/* <Typography variant={"body2"}>Social links</Typography> */}
+                        <Typography variant={"body2"}>Social links</Typography>
+                        <Box className={styles.socialIcons}>
+                            <Link href={""}>
+                                <Image src={"icons/facebook.svg"} alt={"facebook"} width={24} height={24} />
+                            </Link>
+                            <Link href={""}>
+                                <Image src={"icons/instagram.svg"} alt={"instagram"} width={24} height={24} />
+                            </Link>
+                            <Link href={""}>
+                                <Image src={"icons/linkedin.svg"} alt={"linkedin"} width={24} height={24} />
+                            </Link>
+                        </Box>
                     </Box>
                 </Box>
                 <Box className={styles.linkSection}>

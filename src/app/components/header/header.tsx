@@ -11,14 +11,12 @@ const Header: React.FC = () => {
     
     return (
         <Slide appear={false} direction="down" in={!trigger}>
-            <AppBar component={'header'} elevation={0}>
-                <Toolbar className={styles.appBar}>
+            <AppBar component={'header'} elevation={0} className={styles.appBar}>
+                <Toolbar className={styles.toolBar}>
                     <Box>
                         <Link href="/">
                             <Image src="/logo_48.svg" alt="Savvyo Logo" width={80} height={80} className={styles.logo} />
                         </Link>
-                    </Box>
-                    <Box sx={{ flexGrow: 1 }}>
                     </Box>
                     <Box className={styles.pageBtns}>
                         <Link href="/"><Button>Home</Button></Link>

@@ -1,22 +1,27 @@
 @use '/src/app/styles/constants';
 
 .appBar {
-    width: 100%;
     background-color: constants.$baseColor;
-    padding: 0 1rem;
+    border-bottom: 1px solid #D0D5DD;
 
-    .logo {
-        margin: 0.5rem 0;
-        height: 100%;
-        width: 100%;
-    }
-
-    .pageBtns {
-        a {
-            padding: 0 1rem;
-
-            button{
-                padding: 0 0.5rem;
+    .toolBar{
+        padding: 0 1rem;
+        display: flex;
+        justify-content: space-between;
+        
+        .logo {
+            margin: 0.5rem 0;
+            height: 100%;
+            width: 100%;
+        }
+    
+        .pageBtns {            
+            a {
+                margin: 0 1rem;
+    
+                button{
+                    padding: 0 0.5rem;
+                }
             }
         }
     }

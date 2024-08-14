@@ -39,7 +39,7 @@ const getActiveForm = (
     case 1:
       return <ExperienceForm handleNext={handleNext} handleFormData={handleFormData} />;
     case 2:
-      return <MiscellaneousForm />;
+      return <MiscellaneousForm handleNext={handleNext} handleFormData={handleFormData} />;
     default:
       return <></>;
   }
@@ -73,13 +73,11 @@ export default function CareersPage() {
           <Stepper activeStep={activeStep} orientation="vertical">
             {steps.map((step, index) => (
               <Step key={step.label}>
-                <StepLabel 
-                  // StepIconComponent={step.icon}
-                >
-                    <Typography typography={"h6"}>{step.label}</Typography>
+                <StepLabel icon={step.icon}>
+                  <Typography typography={"h6"} className={styles.stepLabel}>{step.label}</Typography>
                 </StepLabel>
                 <StepContent>
-                  <Typography>{step.description}</Typography>
+                  <Typography className={styles.stepDesc}>{step.description}</Typography>
                 </StepContent>
               </Step>
             ))}

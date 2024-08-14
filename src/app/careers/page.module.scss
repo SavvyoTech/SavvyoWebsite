@@ -17,13 +17,20 @@
 
     .formBox {
         display: flex;
-        height: auto;
 
         .formProgress{
             width: 45%;
             display: flex;
             align-items: center;
             justify-content: center;
+
+            .stepLabel{
+                margin: 0 0.5rem;
+            }
+
+            .stepDesc{
+                margin: 0 2rem;
+            }
         }
 
         hr{
