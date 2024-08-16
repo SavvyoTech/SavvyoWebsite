@@ -91,21 +91,21 @@ export default function ProductPage() {
               <div className={styles.heroIconDiv}>
                 <div className={styles.heroIconMainDiv}>
                   <Image
-                    src="/images/avatar-mid.svg"
+                    src="/images/product/avatar-mid.svg"
                     alt="hero icon"
                     width={56}
                     height={56}
                     className={styles.heroIconMain}
                   />
                   <Image
-                    src="/images/avatar-left.svg"
+                    src="/images/product/avatar-left.svg"
                     alt="hero icon"
                     width={48}
                     height={48}
                     className={styles.heroIconLeft}
                   />
                   <Image
-                    src="/images/avatar-right.svg"
+                    src="/images/product/avatar-right.svg"
                     alt="hero icon"
                     width={48}
                     height={48}
@@ -167,19 +167,31 @@ export default function ProductPage() {
         </div>
       </section>
 
-      <section id="section2" ref={communityRef} className={styles.community}>
+      <motion.section
+        id="section2"
+        ref={communityRef}
+        className={styles.community}
+        initial={{ opacity: 0, y: 50 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.5, ease: "easeInOut" }}
+      >
         <div className={styles.communityHeader}>
           <h4>SAVVYO Community</h4>
           <p>Building Connections. Sharing Experiences. Growing Together.</p>
         </div>
         <Image
-          src="/images/community-img.svg"
+          src="/images/product/community-img.svg"
           alt="community image"
           width={500}
           height={500}
           className={styles.communityImage}
         />
-        <div className={styles.communityGrid}>
+        <motion.div
+          initial={{ opacity: 0, y: 50 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5, ease: "easeInOut" }}
+          className={styles.communityGrid}
+        >
           <GridItemProduct
             title="Interest-Based Groups"
             description="Join or create groups centered around your interests, whether it's technology, cooking, fitness, or gardening. Connect with like-minded individuals and share your passion."
@@ -210,10 +222,16 @@ export default function ProductPage() {
             description="Organize and participate in events and meetups, both virtual and in-person. From workshops and webinars to social gatherings, SAVVYO provides opportunities to connect and learn from each other."
             icon="/icons/heart-chat.svg"
           />
-        </div>
-      </section>
+        </motion.div>
+      </motion.section>
 
-      <section id="section3" className={styles.whyJoin}>
+      <motion.section
+        initial={{ opacity: 0, y: "50px" }}
+        whileInView={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.5, ease: "easeInOut" }}
+        id="section3"
+        className={styles.whyJoin}
+      >
         <h4>Why Join the SAVVYO Community?</h4>
         <div className={styles.whyJoinDiv}>
           <div className={styles.whyJoinGrid}>
@@ -238,7 +256,12 @@ export default function ProductPage() {
               icon="/icons/emoji-icon.svg"
             />
           </div>
-          <div className={styles.whyJoinImgDiv}>
+          <motion.div
+            initial={{ opacity: 0, x: "100%" }}
+            whileInView={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.5, ease: "easeInOut" }}
+            className={styles.whyJoinImgDiv}
+          >
             <Image
               src="/images/mac-pro-mock.svg"
               alt="community image"
@@ -246,10 +269,15 @@ export default function ProductPage() {
               height={448}
               className={styles.whyJoinImage}
             />
-          </div>
+          </motion.div>
         </div>
         <div className={styles.whyJoinBtns}>
-          <div className={styles.whyJoinBtnSection}>
+          <motion.div
+            initial={{ opacity: 0, y: "100px" }}
+            whileInView={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.5, ease: "easeInOut" }}
+            className={styles.whyJoinBtnSection}
+          >
             <h4>
               Join SAVVYO Community and be a part of something bigger. Share
               your truth, connect with others, and grow together in a space that
@@ -267,13 +295,16 @@ export default function ProductPage() {
                 Join us
               </Link>
             </div>
-          </div>
+          </motion.div>
         </div>
-      </section>
+      </motion.section>
 
       {/* <hr /> */}
 
-      <section
+      <motion.section
+        initial={{ opacity: 0, y: "50px" }}
+        whileInView={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.5, ease: "easeInOut" }}
         id="section4"
         ref={marketPlaceRef}
         className={styles.marketPlace}
@@ -379,9 +410,15 @@ export default function ProductPage() {
             />
           </div>
         </div>
-      </section>
+      </motion.section>
 
-      <section id="section5" className={styles.whyShop}>
+      <motion.section
+        initial={{ opacity: 0, y: "50px" }}
+        whileInView={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.5, ease: "easeInOut" }}
+        id="section5"
+        className={styles.whyShop}
+      >
         <div className={styles.whyShopHeader}>
           <h4>Why Shop with Savvyo ?</h4>
           <p>
@@ -431,7 +468,7 @@ export default function ProductPage() {
             />
           </div>
         </div>
-      </section>
+      </motion.section>
 
       <section id="section6" className={styles.products}>
         <h4>SAVVYO Products</h4>

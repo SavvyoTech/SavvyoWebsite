@@ -95,7 +95,7 @@ export default function HomePage() {
 
   const controls = useAnimation();
 
-  const words = ["INNOVATION", "CHANGE", "REVOLUTION"];
+  const words = ["INNOVATION", "CHANGE", "REVOLUTION", "SAVVYO"];
 
   useEffect(() => {
     const sequence = async () => {
@@ -157,21 +157,21 @@ export default function HomePage() {
             <div className={styles.heroIconDiv}>
               <div className={styles.heroIconMainDiv}>
                 <Image
-                  src="/images/avatar-mid.svg"
+                  src="/images/home/avatar-mid.svg"
                   alt="hero icon"
                   width={56}
                   height={56}
                   className={styles.heroIconMain}
                 />
                 <Image
-                  src="/images/avatar-left.svg"
+                  src="/images/home/avatar-left.svg"
                   alt="hero icon"
                   width={48}
                   height={48}
                   className={styles.heroIconLeft}
                 />
                 <Image
-                  src="/images/avatar-right.svg"
+                  src="/images/home/avatar-right.svg"
                   alt="hero icon"
                   width={48}
                   height={48}
@@ -458,7 +458,13 @@ export default function HomePage() {
         </div>
       </motion.section>
 
-      <section id="section4" className={styles.community}>
+      <motion.section
+        initial={{ opacity: 0, y: "3rem" }}
+        whileInView={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.3, ease: "easeInOut" }}
+        id="section4"
+        className={styles.community}
+      >
         <div className={styles.whyJoinBtns}>
           <div className={styles.whyJoinBtnSection}>
             <h2>Join or create communities</h2>
@@ -533,7 +539,7 @@ export default function HomePage() {
             className={styles.communityImage6}
           />
         </div>
-      </section>
+      </motion.section>
 
       <section id="section5" className={styles.blogs}>
         <div className={styles.blogsHeader}>
@@ -574,7 +580,12 @@ export default function HomePage() {
 
       <section id="section6" className={styles.goToApps}>
         <div className={styles.goToAppsDiv}>
-          <div className={styles.goToAppsLeft}>
+          <motion.div
+            className={styles.goToAppsLeft}
+            initial={{ opacity: 0, x: "-100%" }}
+            whileInView={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.5, ease: "easeInOut" }}
+          >
             <h3>Join over 4,000+ Communities growing with Savvyo</h3>
             <p className={styles.goToAppsDesc}>Download our app today.</p>
             <div className={styles.goToAppsBtns}>
@@ -603,14 +614,21 @@ export default function HomePage() {
                 </div>
               </Link>
             </div>
-          </div>
-          <Image
-            src="/images/home/iphone.svg"
-            alt="go to apps"
-            width={400}
-            height={500}
-            className={styles.goToAppsImg}
-          />
+          </motion.div>
+          <motion.div
+            className={styles.goToAppsRight}
+            initial={{ opacity: 0, y: "30%" }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.3, ease: "easeInOut" }}
+          >
+            <Image
+              src="/images/home/iphone.svg"
+              alt="go to apps"
+              width={400}
+              height={500}
+              className={styles.goToAppsRight}
+            />
+          </motion.div>
         </div>
       </section>
     </main>
