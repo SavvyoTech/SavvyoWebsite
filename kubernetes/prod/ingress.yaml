@@ -4,11 +4,14 @@ metadata:
   name: savyo-web-ingress
   namespace: prod
   annotations:
+    cert-manager.io/issuer: letsencrypt-prod
     nginx.ingress.kubernetes.io/rewrite-target: /
-    nginx.ingress.kubernetes.io/ssl-redirect: "true"
+    nginx.ingress.kubernetes.io/force-ssl-redirect: "true"
+    acme.cert-manager.io/http01-edit-in-place: "true"
 spec:
+  ingressClassName: nginx
   rules:
-    - host: "*.savyo.in"
+    - host: www.savvyo.in
       http:
         paths:
           - path: /
@@ -18,3 +21,7 @@ spec:
                 name: savyo-web-service
                 port:
                   number: 80
+  tls:
+    - hosts:
+        - www.savvyo.in
+      secretName: letsencrypt-prod

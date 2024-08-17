@@ -13,6 +13,13 @@ spec:
       labels:
         app: savyoweb
     spec:
+      affinity:
+        podAntiAffinity:
+          requiredDuringSchedulingIgnoredDuringExecution:
+            - labelSelector:
+                matchLabels:
+                  app: savyoweb
+              topologyKey: "kubernetes.io/hostname"
       containers:
       - name: savyoweb
         image: 014498627182.dkr.ecr.us-east-1.amazonaws.com/savyo-web:latest
