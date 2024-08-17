@@ -1,0 +1,369 @@
+@use "/src/app/styles/constants";
+
+.main {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  .aboutSection1 {
+    .ourValuesHead {
+      padding: 10% 20%;
+      height: 50%;
+      display: flex;
+      flex-direction: column;
+
+      align-items: center;
+      justify-content: center;
+
+
+      p {
+        text-align: center;
+        margin: 0 0 1rem 0;
+      }
+
+      .coreValue {
+        padding: 0 12%;
+      }
+    }
+
+    .ourValuesGrid {
+      width: 100%;
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      grid-template-rows: repeat(2, 1fr);
+      grid-column-gap: 32px;
+      grid-row-gap: 64px;
+      padding: 0 10%;
+    }
+
+    .questionsBox {
+      width: 100%;
+      padding: 10% 112px;
+
+      .questionsBoxSection {
+        padding: 64px;
+        background-color: #f9fafb;
+        border-radius: 1rem;
+        display: flex;
+        justify-content: space-between;
+
+        h5 {
+          width: 100%;
+          margin-bottom: 0;
+          color: constants.$primaryColor;
+        }
+
+        p {
+          width: 100%;
+          margin-top: 16px;
+          font-size: constants.$bodyXLarge;
+          color: constants.$h2Color;
+        }
+      }
+
+      .getInTouch {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: center;
+        gap: 12px;
+        margin-top: 0;
+
+        .getInTouchLink {
+          background-color: constants.$primaryColor;
+          color: constants.$baseColor;
+          padding: 12px 18px;
+          border-radius: 8px;
+          font-size: constants.$body;
+          transition: all 0.5s ease;
+
+          &:hover {
+            scale: 1.05;
+          }
+        }
+      }
+    }
+  }
+
+  .aboutSection2 {
+    padding: 0 112px;
+    width: 1440px;
+    height: 846px;
+    display: flex;
+    justify-content: center;
+
+    .ourJourneySection {
+      display: flex;
+      flex-direction: row;
+      width: 1280px;
+      height: 654px;
+      padding: 0 32px;
+      gap: 64px;
+
+      .ourJourneyDesc {
+        margin: 89px 0;
+        display: flex;
+        flex-direction: column;
+        gap: 48px;
+
+        h3 {
+          color: constants.$primaryColor;
+          font-size: 36px;
+        }
+
+        .ourJourneyParas {
+          width: 576px;
+          height: 288px;
+          display: flex;
+          flex-direction: column;
+          gap: 18px;
+
+          p {
+            color: constants.$h2Color;
+            line-height: 28px;
+            font-size: 18px;
+          }
+
+          .ourJourneyDescBold {
+            font-weight: 700;
+          }
+        }
+
+        .ourJourneyBtns {
+          display: flex;
+          flex-direction: row;
+          align-items: center;
+          gap: 12px;
+
+          .ourJourneyLink1 {
+            color: constants.$primaryColor;
+            background-color: constants.$baseColor;
+            padding: 12px 18px;
+            border-radius: 8px;
+            border: 1px solid constants.$ternaryColor;
+            font-size: constants.$body;
+            transition: all 0.5s ease;
+
+            &:hover {
+              scale: 1.05;
+            }
+          }
+
+          .ourJourneyLink2 {
+            background-color: constants.$primaryColor;
+            color: constants.$baseColor;
+            padding: 12px 18px;
+            border-radius: 8px;
+            font-size: constants.$body;
+            transition: all 0.5s ease;
+
+            &:hover {
+              scale: 1.05;
+            }
+          }
+        }
+      }
+
+      .ourJourneyImg {
+        width: 576px;
+        height: 654px;
+      }
+    }
+  }
+
+  .aboutSection3 {
+    display: flex;
+    flex-direction: row;
+    width: 1440px;
+    height: 1030px;
+    padding: 0 66px 96px 66px;
+
+    .indiaImg {
+      width: 629px;
+      height: 815px;
+      margin-top: 11.5px;
+    }
+
+    .letsConnect {
+      width: 679px;
+      height: 838px;
+      padding: 0 99.5px;
+      display: flex;
+      flex-direction: column;
+      gap: 48px;
+
+      .letsConnectDesc {
+        display: flex;
+        gap: 24px;
+        flex-direction: column;
+
+        h3 {
+          color: constants.$primaryColor;
+          font-size: 48px;
+          line-height: 60px;
+        }
+
+        p {
+          font-size: 20px;
+          line-height: 30px;
+        }
+      }
+
+      .letsConnectForm {
+        display: flex;
+        flex-direction: column;
+        gap: 24px;
+        color: constants.$primaryColor;
+
+        input {
+          height: 44px;
+          padding: 10px 14px 10px 14px;
+          border: 1px solid #D0D5DD;
+          border-radius: 8px;
+        }
+
+        .name {
+          height: 70px;
+          display: flex;
+          gap: 32px;
+
+          .firstName {
+            display: flex;
+            flex-direction: column;
+            width: 224px;
+            gap: 6px;
+          }
+
+          .lastName {
+            display: flex;
+            flex-direction: column;
+            width: 224px;
+            gap: 6px;
+          }
+        }
+
+        .email {
+          height: 70px;
+          display: flex;
+          flex-direction: column;
+          gap: 6px;
+        }
+
+        .phone {
+          height: 70px;
+          display: flex;
+          flex-direction: column;
+          gap: 6px;
+
+          .phSection {
+            height: 44px;
+            padding: 10px 14px 10px 14px;
+            border: 1px solid #D0D5DD;
+            border-radius: 8px;
+
+            select {
+              border: none;
+              outline: none;
+              font-size: 16px;
+              font-family: constants.$inter;
+            }
+
+            input {
+              all: unset;
+              padding: 0 10px;
+            }
+          }
+        }
+
+        .message {
+          display: flex;
+          flex-direction: column;
+          gap: 6px;
+
+          textarea {
+            height: 134px;
+            padding: 14px 14px;
+            border: 1px solid #D0D5DD;
+            border-radius: 8px;
+            font-size: 16px;
+            font-family: constants.$inter;
+            line-height: 24px;
+          }
+        }
+
+        .category {
+          display: flex;
+          flex-direction: column;
+          gap: 16px;
+
+          .checkboxGroup {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr); 
+            grid-template-rows: repeat(2, auto); 
+            gap: 16px;
+            
+            input[type="checkbox"] {
+              position: absolute;
+              opacity: 0;
+              cursor: pointer;
+              height: 0;
+              width: 0;
+            }
+
+            input[type="checkbox"]:checked + .checkmark:after {
+              content: '\2714';
+              display: block;
+              color: white;
+              background: constants.$primaryColor;
+              height: 100%;
+              width: 100%;
+              border: 1px solid #D0D5DD;
+              border-radius: 6px;
+              display: flex;
+              align-items: center;
+              justify-content: center;
+            }
+
+            label {
+              display: flex;
+              flex-direction: row;
+              width: 208px;
+              height: 24px;
+              gap: 12px;
+              font-size: 16px;
+              font-weight: 500;
+              line-height: 24px;
+
+              span{
+                margin-top: 2.3px;
+              }
+
+              .checkmark {
+                height: 20px;
+                width: 20px;
+                background-color: white;
+                border: 1px solid #D0D5DD;
+                border-radius: 6px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+              }
+            }
+          }
+        }
+
+        .getStartedBtn{
+          background: #101828;
+          color: white;
+          padding: 12px 18px 12px 18px;
+          border-radius: 8px;
+          border: 2px;
+          font-weight: 600;
+          font-size: 16px;
+          line-height: 24px;
+          font-family: constants.$inter;
+        }
+      }
+    }
+  }
+}
