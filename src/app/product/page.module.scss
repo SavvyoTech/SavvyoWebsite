@@ -4,6 +4,7 @@
   display: flex;
   flex-direction: column;
   margin-top: 96px;
+  overflow-x: hidden;
 
   .hero {
     margin: 96px 0 0 80px;
@@ -119,10 +120,10 @@
   }
 
   .community {
-    margin-top: 192px;
+    margin-top: 96px;
     // margin-left: 80px;
     width: 100%;
-    padding: 0 80px;
+    padding: 96px 80px 0 80px;
     display: flex;
     flex-direction: column;
     align-self: center;
@@ -150,7 +151,7 @@
     }
     .communityGrid {
       width: 100%;
-      // margin-top: 96px;
+      margin-top: 96px;
       display: grid;
       grid-template-columns: repeat(3, 1fr);
       grid-template-rows: repeat(2, 1fr);
@@ -163,7 +164,7 @@
   .whyJoin {
     padding-left: 80px;
     // margin-left: 80px;
-    margin: 96px 0;
+    margin: 96px 0 0 0;
     width: 100%;
 
     h4 {
@@ -183,6 +184,7 @@
         grid-column-gap: 32px;
         grid-row-gap: 48px;
         padding: 0 32px;
+        z-index: 1;
       }
       .whyJoinImgDiv {
         width: 50%;
@@ -270,7 +272,7 @@
 
   .marketPlace {
     margin-top: 96px;
-    padding: 0 80px;
+    padding: 96px 80px 0 80px;
     width: 100%;
 
     .marketPlaceHeader {
