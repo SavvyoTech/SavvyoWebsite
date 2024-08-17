@@ -118,7 +118,7 @@ export default function AboutPage() {
           >
             <div className={styles.ourJourneyImg}>
               <Image
-                src="/images/our-journey.jpeg"
+                src="/images/about-us1.svg"
                 alt="Our Journey"
                 width={576}
                 height={654}
@@ -140,7 +140,7 @@ export default function AboutPage() {
         >
           <div className={styles.indiaImg}>
             <Image
-              src="/images/lets-connect.jpeg"
+              src="/images/about-us2.svg"
               alt="Let's Connect"
               width={629}
               height={815}
