@@ -5,11 +5,20 @@ import styles from "./page.module.scss";
 import { Typography } from "@mui/material";
 import GridItemProduct from "../components/gridItemProduct/gridItemProduct";
 import Link from "next/link";
-import { motion } from "framer-motion";
-import { useRef } from "react";
+import { motion, useAnimation } from "framer-motion";
+import { useRef, useEffect } from "react";
+import useMediaQuery from "@mui/material/useMediaQuery";
 
 export default function AboutPage() {
   const letsConnectRef = useRef<HTMLDivElement>(null);
+  const controls = useAnimation();
+  const isSmallScreen = useMediaQuery('(max-width:376px)');
+
+  useEffect(() => {
+    if (isSmallScreen) {
+      controls.start({ opacity: 1, x: 0 });
+    }
+  }, [isSmallScreen, controls]);
 
   const scrollToLetsConnect = () => {
     if (letsConnectRef.current) {
@@ -21,8 +30,8 @@ export default function AboutPage() {
     <main className={styles.main}>
       <section className={styles.aboutSection1}>
         <div className={styles.ourValuesHead}>
-          <Typography typography={"h6"}>Our Values: Vasudhaiva Kutumbakam</Typography>
-          <Typography typography={"h3"}>At Savvyo, we believe in the profound wisdom of "Vasudhaiva Kutumbakam"</Typography>
+          <Typography typography={"h6"} className={styles.subheading}>Our Values: Vasudhaiva Kutumbakam</Typography>
+          <Typography typography={"h3"} className={styles.heading}>At Savvyo, we believe in the profound wisdom of "Vasudhaiva Kutumbakam"</Typography>
           <Typography typography={"body1"} className={styles.coreValue}>The world is one family. Rooted in this timeless Indian principle, our core value, “SvaDharma”, encapsulates a rich tapestry of virtues.</Typography>
         </div>
         <div className={styles.ourValuesGrid}>
@@ -63,7 +72,6 @@ export default function AboutPage() {
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5, ease: "easeInOut" }}
           id="section3"
-          className={styles.CTA}
         >
           <div className={styles.questionsBox}>
             <div className={styles.questionsBoxSection}>
@@ -86,9 +94,9 @@ export default function AboutPage() {
 
           <motion.div
             initial={{ opacity: 0, x: "-100%" }}
+            animate={isSmallScreen ? { opacity: 1, x: 0 } : controls}
             whileInView={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.5, ease: "easeInOut" }}
-            className={styles.marketPlaceItemsDivGrid}
           >
             <div className={styles.ourJourneyDesc}>
               <h3>Our journey begins</h3>
@@ -99,30 +107,40 @@ export default function AboutPage() {
                 <p>Together, let's embrace the spirit and work towards building a brighter, more inclusive world where every individual is valued and respected as part of one global family.</p>
               </div>
 
-              <div className={styles.ourJourneyBtns}>
-                <Link href="#" className={styles.ourJourneyLink1}>
-                  Read more
-                </Link>
-                <Link href="/product" className={styles.ourJourneyLink2}>
-                  Check our product
-                </Link>
-              </div>
+              {isSmallScreen ?
+                <div className={styles.ourJourneyBtns}>
+                  <Link href="/product" className={styles.ourJourneyLink2}>
+                    Check our product
+                  </Link>
+                  <Link href="#" className={styles.ourJourneyLink1}>
+                    Read more
+                  </Link>
+                </div> :
+                <div className={styles.ourJourneyBtns}>
+                  <Link href="#" className={styles.ourJourneyLink1}>
+                    Read more
+                  </Link>
+                  <Link href="/product" className={styles.ourJourneyLink2}>
+                    Check our product
+                  </Link>
+                </div>
+              }
             </div>
           </motion.div>
 
           <motion.div
             initial={{ opacity: 0, x: "100%" }}
+            animate={isSmallScreen ? { opacity: 1, x: 0 } : controls}
             whileInView={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.5, ease: "easeInOut" }}
-            className={styles.marketPlaceItemsImage}
           >
             <div className={styles.ourJourneyImg}>
               <Image
-                src="/images/about-us1.svg"
+                src={isSmallScreen? "/images/about-us-mobile.svg" : "/images/about-us1.svg"}
                 alt="Our Journey"
-                width={576}
-                height={654}
-                objectFit="cover"
+                width={isSmallScreen? 343: 576}
+                height={isSmallScreen? 240: 654}
+                objectFit="contain"
                 quality={100}
               />
             </div>
@@ -134,27 +152,26 @@ export default function AboutPage() {
       <section className={styles.aboutSection3} ref={letsConnectRef}>
         <motion.div
           initial={{ opacity: 0, x: "-100%" }}
+          animate={isSmallScreen ? { opacity: 1, x: 0 } : controls}
           whileInView={{ opacity: 1, x: 0 }}
           transition={{ duration: 0.5, ease: "easeInOut" }}
-          className={styles.marketPlaceItemsDivGrid}
-        >
+          >
           <div className={styles.indiaImg}>
             <Image
               src="/images/about-us2.svg"
               alt="Let's Connect"
               width={629}
               height={815}
-            />
+              />
           </div>
         </motion.div>
 
         <motion.div
           initial={{ opacity: 0, x: "100%" }}
+          animate={isSmallScreen ? { opacity: 1, x: 0 } : controls}
           whileInView={{ opacity: 1, x: 0 }}
           transition={{ duration: 0.5, ease: "easeInOut" }}
-          className={styles.marketPlaceItemsImage}
         >
-
           <div className={styles.letsConnect}>
             <div className={styles.letsConnectDesc}>
               <h3>Let&apos;s Connect</h3>

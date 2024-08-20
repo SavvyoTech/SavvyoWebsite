@@ -18,3 +18,19 @@
     line-height: 1.875rem;
   }
 }
+
+@media (max-width: 376px) {
+  .gridItem{
+    width: 343px; 
+
+    h6 {
+      font-size: 18px;
+      line-height: 28px;
+    }
+
+    p {
+      font-size: 16px;
+      line-height: 24px;
+    }
+  }
+}

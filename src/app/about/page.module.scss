@@ -91,6 +91,7 @@
     height: 846px;
     display: flex;
     justify-content: center;
+    overflow: hidden;
 
     .ourJourneySection {
       display: flex;
@@ -177,6 +178,7 @@
     width: 1440px;
     height: 1030px;
     padding: 0 66px 96px 66px;
+    overflow: hidden;
 
     .indiaImg {
       width: 629px;
@@ -298,10 +300,10 @@
 
           .checkboxGroup {
             display: grid;
-            grid-template-columns: repeat(2, 1fr); 
-            grid-template-rows: repeat(2, auto); 
+            grid-template-columns: repeat(2, 1fr);
+            grid-template-rows: repeat(2, auto);
             gap: 16px;
-            
+
             input[type="checkbox"] {
               position: absolute;
               opacity: 0;
@@ -310,7 +312,7 @@
               width: 0;
             }
 
-            input[type="checkbox"]:checked + .checkmark:after {
+            input[type="checkbox"]:checked+.checkmark:after {
               content: '\2714';
               display: block;
               color: white;
@@ -334,7 +336,7 @@
               font-weight: 500;
               line-height: 24px;
 
-              span{
+              span {
                 margin-top: 2.3px;
               }
 
@@ -352,7 +354,7 @@
           }
         }
 
-        .getStartedBtn{
+        .getStartedBtn {
           background: #101828;
           color: white;
           padding: 12px 18px 12px 18px;
@@ -366,6 +368,188 @@
 
           &:hover {
             scale: 1.05;
+          }
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: 376px) {
+  .main {
+    .aboutSection1 {
+      padding: 64px 0 64px 0;
+
+      .ourValuesHead {
+        height: 508px;
+        padding: 0 16px 0 16px;
+
+        .subheading {
+          height: 20px;
+          font-weight: 600;
+          font-size: 14px;
+          line-height: 20px;
+        }
+
+        .heading {
+          font-size: 36px;
+          line-height: 44px;
+          width: 338px;
+        }
+
+        .coreValue {
+          width: 343px;
+          font-size: 18px;
+          font-weight: 400;
+          line-height: 28px;
+          padding: 0;
+        }
+      }
+
+      .ourValuesGrid {
+        display: flex;
+        flex-direction: column;
+        padding: 64px 16px;
+        align-items: center;
+      }
+
+      .questionsBox {
+        height: 222px;
+        width: 100%;
+        padding: 0 16px 0 16px;
+
+        .questionsBoxSection {
+          padding: 32px 20px 32px 20px;
+          display: flex;
+          flex-direction: column;
+          align-items: flex-start;
+          gap: 24px;
+
+          h5 {
+            font-size: 20px;
+            line-height: 30px;
+          }
+
+          p {
+            font-size: 16px;
+            line-height: 24px;
+          }
+        }
+      }
+    }
+
+    .aboutSection2 {
+      margin: 64px 0;
+
+      .ourJourneySection {
+        flex-direction: column;
+        align-items: center;
+        height: auto;
+
+        .ourJourneyDesc {
+          gap: 32px;
+          padding: 0 16px 0 16px;
+          margin: 0;
+          height: 554px;
+
+          h3 {
+            font-size: 30px;
+            line-height: 38px;
+          }
+
+          .ourJourneyParas {
+            width: 343px;
+            height: 344px;
+
+            p {
+              font-size: 16px;
+              line-height: 24px;
+            }
+          }
+
+          .ourJourneyBtns {
+            flex-direction: column;
+
+            .ourJourneyLink1,
+            .ourJourneyLink2 {
+              width: 343px;
+              height: 48px;
+              text-align: center;
+            }
+          }
+        }
+
+        .ourJourneyImg {
+          height: 240px;
+          width: 343px;
+        }
+      }
+    }
+
+    .aboutSection3 {
+      width: 375px;
+      padding: 0 16px;
+      margin-bottom: 64px;
+
+      .indiaImg {
+        display: none;
+      }
+
+      .letsConnect {
+        padding: 64px 0;
+        gap: 48px;
+        align-content: center;
+
+        .letsConnectDesc {
+          width: 375px;
+
+          h3 {
+            font-size: 36px;
+            line-height: 44px;
+          }
+
+          p {
+            width: 343px;
+            font-size: 18px;
+            line-height: 28px;
+          }
+        }
+
+        .letsConnectForm {
+          width: 375px;
+          gap: 32px;
+
+          label {
+            font-size: 14px;
+            line-height: 20px;
+          }
+
+          input,
+          textarea,
+          .phSection,
+          .getStartedBtn {
+            width: 343px;
+          }
+
+          .name {
+            flex-direction: column;
+          }
+
+          .email {
+            margin-top: 102px;
+          }
+
+          .category {
+            .checkboxGroup {
+              column-gap: 0px;
+              row-gap: 12px;
+
+              label {
+                font-size: 16px;
+                line-height: 24px;
+                gap: 12px;
+              }
+            }
           }
         }
       }
