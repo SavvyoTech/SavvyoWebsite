@@ -31,8 +31,8 @@ export default function AboutPage() {
       <section className={styles.aboutSection1}>
         <div className={styles.ourValuesHead}>
           <Typography typography={"h6"} className={styles.subheading}>Our Values: Vasudhaiva Kutumbakam</Typography>
-          <Typography typography={"h3"} className={styles.heading}>At Savvyo, we believe in the profound wisdom of "Vasudhaiva Kutumbakam"</Typography>
-          <Typography typography={"body1"} className={styles.coreValue}>The world is one family. Rooted in this timeless Indian principle, our core value, “SvaDharma”, encapsulates a rich tapestry of virtues.</Typography>
+          <Typography typography={"h3"} className={styles.heading}>At Savvyo, we believe in the profound wisdom of &quot;Vasudhaiva Kutumbakam&quot;</Typography>
+          <Typography typography={"body1"} className={styles.coreValue}>The world is one family. Rooted in this timeless Indian principle, our core value, &quot;SvaDharma&quot;, encapsulates a rich tapestry of virtues.</Typography>
         </div>
         <div className={styles.ourValuesGrid}>
           <GridItemProduct
@@ -104,7 +104,7 @@ export default function AboutPage() {
               <div className={styles.ourJourneyParas}>
                 <p className={styles.ourJourneyDescBold}>For us at Savvyo, embodying a relentlessly pursuing value creation for our customers, driven by goodwill and a steadfast commitment to doing good.</p>
                 <p>In our journey towards excellence, we may encounter obstacles, but rest assured, our actions are always guided by benevolence and a steadfast commitment to positive impact.</p>
-                <p>Together, let's embrace the spirit and work towards building a brighter, more inclusive world where every individual is valued and respected as part of one global family.</p>
+                <p>Together, let&apos;s embrace the spirit and work towards building a brighter, more inclusive world where every individual is valued and respected as part of one global family.</p>
               </div>
 
               {isSmallScreen ?
