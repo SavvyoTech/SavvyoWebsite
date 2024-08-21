@@ -5,6 +5,8 @@ import styles from "./page.module.scss";
 import Link from "next/link";
 import { motion, useAnimation } from "framer-motion";
 import { useEffect, useState } from "react";
+import { workerData } from "worker_threads";
+import { useMediaQuery } from "@mui/material";
 
 const GridItem = ({
   title,
@@ -92,10 +94,17 @@ const BlogItem = ({
 
 export default function HomePage() {
   const [currentWord, setCurrentWord] = useState(0);
+  const isSmallScreen = useMediaQuery("(max-width:460px)");
 
   const controls = useAnimation();
 
   const words = ["INNOVATION", "CHANGE", "REVOLUTION", "SAVVYO"];
+
+  useEffect(() => {
+    if (isSmallScreen) {
+      controls.start({ opacity: 1, x: 0 });
+    }
+  }, [isSmallScreen, controls]);
 
   useEffect(() => {
     const sequence = async () => {
@@ -128,16 +137,15 @@ export default function HomePage() {
             {/* <h2>
               We are <span>INNOVATION</span>
             </h2> */}
-            <div>
-              <h2>We are</h2>
-              <motion.div
-                animate={controls}
-                initial={{ opacity: 0 }}
-                // style={{ fontSize: "2rem", textAlign: "center" }}
-              >
-                {words[currentWord]}
-              </motion.div>
-            </div>
+            <h2>We are</h2>
+            <motion.div
+              animate={controls}
+              initial={{ opacity: 0 }}
+              className={styles.changingWords}
+              // style={{ fontSize: "2rem", textAlign: "center" }}
+            >
+              {words[currentWord]}
+            </motion.div>
             <Image
               src="/images/home/pen-scribble.svg"
               alt="pen-scribble"
@@ -214,63 +222,81 @@ export default function HomePage() {
         </div>
 
         <div className={styles.heroFooter}>
-          <div className={styles.heroFooterDiv}>
-            {/* TODO: Make this a proper Div component */}
-            <Image
-              src="/images/home/modal-left.svg"
-              alt="hero footer"
-              width={314}
-              height={264}
-              className={styles.heroFooterImg}
-            />
-            <Image
-              src="/images/home/iphone-main.svg"
-              alt="hero footer"
-              width={424}
-              height={479}
-              className={styles.heroFooterImg}
-            />
+          {isSmallScreen ? (
+            <motion.div
+              initial={{ opacity: 0, y: "30%" }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.3, ease: "easeInOut" }}
+              className={styles.heroFooterDiv}
+            >
+              <Image
+                src="/images/home/mob-iphone.svg"
+                alt="hero footer"
+                width={284}
+                height={479}
+                className={styles.heroFooterImg}
+              />
+              <hr />
+            </motion.div>
+          ) : (
+            <div className={styles.heroFooterDiv}>
+              {/* TODO: Make this a proper Div component */}
+              <Image
+                src="/images/home/modal-left.svg"
+                alt="hero footer"
+                width={314}
+                height={264}
+                className={styles.heroFooterImg}
+              />
+              <Image
+                src="/images/home/iphone-main.svg"
+                alt="hero footer"
+                width={424}
+                height={479}
+                className={styles.heroFooterImg}
+              />
 
-            {/* TODO: Make this a proper Div component */}
-            <Image
-              src="/images/home/modal-right.svg"
-              alt="hero footer"
-              width={316}
-              height={305}
-              className={styles.heroFooterImg}
-            />
+              {/* TODO: Make this a proper Div component */}
+              <Image
+                src="/images/home/modal-right.svg"
+                alt="hero footer"
+                width={316}
+                height={305}
+                className={styles.heroFooterImg}
+              />
 
-            {/* All the below images are in z-index:1 (absolute positions) */}
+              {/* All the below images are in z-index:1 (absolute positions) */}
 
-            <Image
-              src="/images/home/flash-sale.svg"
-              alt="hero footer"
-              width={377}
-              height={175}
-              className={styles.heroFooterImgAbove1}
-            />
-            <Image
-              src="/images/home/message1.svg"
-              alt="hero footer"
-              width={329}
-              height={124}
-              className={styles.heroFooterImgAbove2}
-            />
-            <Image
-              src="/images/home/message2.svg"
-              alt="hero footer"
-              width={343}
-              height={54}
-              className={styles.heroFooterImgAbove3}
-            />
-            <Image
-              src="/images/home/modal-upper.svg"
-              alt="hero footer"
-              width={228}
-              height={208}
-              className={styles.heroFooterImgAbove4}
-            />
-          </div>
+              <Image
+                src="/images/home/flash-sale.svg"
+                alt="hero footer"
+                width={377}
+                height={175}
+                className={styles.heroFooterImgAbove1}
+              />
+              <Image
+                src="/images/home/message1.svg"
+                alt="hero footer"
+                width={329}
+                height={124}
+                className={styles.heroFooterImgAbove2}
+              />
+              <Image
+                src="/images/home/message2.svg"
+                alt="hero footer"
+                width={343}
+                height={54}
+                className={styles.heroFooterImgAbove3}
+              />
+              <Image
+                src="/images/home/modal-upper.svg"
+                alt="hero footer"
+                width={228}
+                height={208}
+                className={styles.heroFooterImgAbove4}
+              />
+            </div>
+          )}
         </div>
       </motion.section>
 

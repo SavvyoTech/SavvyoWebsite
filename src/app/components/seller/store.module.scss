@@ -1,0 +1,31 @@
+.storeForm {
+  .textBox {
+    input {
+      width: 100%;
+      padding: 0 1rem;
+    }
+
+    textarea {
+      width: 100%;
+      padding: 0 1rem;
+      box-sizing: border-box; /* Ensures the padding is included within the element's total width */
+    }
+  }
+  .nameBox {
+    display: flex;
+    width: 100%;
+    gap: 2rem;
+
+    .textBox {
+      width: 100%;
+    }
+  }
+
+  div {
+    padding: 0.75rem 0;
+  }
+
+  button {
+    padding: 0.5rem;
+  }
+}

@@ -2,8 +2,11 @@
 .main {
   display: flex;
   flex-direction: column;
+  width: 100%;
   margin-top: 96px;
   overflow-x: hidden;
+  overflow-y: hidden;
+  scrollbar-width: 0px;
 
   .hero {
     display: flex;
@@ -11,6 +14,7 @@
     justify-content: center;
     align-items: center;
     margin-top: 96px;
+    width: 100%;
 
     .heroHeader {
       display: flex;
@@ -18,54 +22,62 @@
       align-items: center;
       justify-content: center;
       margin-bottom: 54px;
+      width: 100%;
 
       .heroHeaderTitle {
         position: relative;
-        width: 100%;
         display: flex;
-        justify-content: center;
-        align-items: center;
-        margin-bottom: 64px;
+        width: 100%;
+        margin-bottom: 4rem;
 
-        div {
-          display: flex;
-          align-items: center;
-          justify-content: center;
-          width: 100%;
-
-          h2 {
-            color: constants.$primaryColor;
-            text-align: end;
-            width: 100%;
-          }
-          div {
-            margin-left: 1rem;
-            font-size: constants.$h2;
-            font-weight: 600;
-            color: constants.$secondaryColor;
-            display: flex;
-            justify-content: flex-start;
-          }
+        h2 {
+          position: absolute;
+          margin-left: 33%;
+          color: constants.$primaryColor;
         }
 
-        // h2 {
-        //   color: constants.$primaryColor;
-        //   span {
-        //     color: constants.$secondaryColor;
-        //   }
-        // }
+        .changingWords {
+          font-size: constants.$h2;
+          font-weight: 600;
+          color: constants.$secondaryColor;
+          margin-left: 48%;
+        }
 
         .heroHeaderTitleScribble {
           z-index: 1;
           position: absolute;
-          bottom: -15px;
-          left: 50%;
+          left: 48%;
+          top: 4rem;
         }
+
+        // div {
+        //   display: flex;
+        //   position: relative;
+
+        //   h2 {
+        //     color: constants.$primaryColor;
+        //     position: absolute;
+        //     bottom: -15px;
+        //     left: 200px;
+        //   }
+        //   div {
+        //     margin-left: 1rem;
+        //     font-size: constants.$h2;
+        //     font-weight: 600;
+        //     color: constants.$secondaryColor;
+        //   }
+        //   .heroHeaderTitleScribble {
+        //     z-index: 1;
+        //     position: absolute;
+        //     left: 50%;
+        //     bottom: -15px;
+        //   }
+        // }
       }
 
       p {
         text-align: center;
-        width: 768px;
+        max-width: 768px;
         font-size: 1.25rem;
         color: constants.$h2Color;
         line-height: 1.875rem;
@@ -79,8 +91,10 @@
     .btns {
       display: flex;
       flex-direction: row;
-      margin-top: 48px;
-      gap: 64px;
+      justify-content: center;
+      margin-top: 3rem;
+      gap: 4rem;
+      width: 100%;
 
       .heroFirst {
         width: 228px;
@@ -195,8 +209,8 @@
   }
 
   .whatWeOffer {
-    margin-top: 96px;
-    padding: 0 80px;
+    margin-top: 6rem;
+    padding: 0 5rem;
     width: 100%;
 
     .marketPlaceHeader {
@@ -218,6 +232,7 @@
         }
         p {
           margin-top: 20px;
+          line-height: 1.875rem;
           font-size: constants.$bodyXLarge;
           color: constants.$h2Color;
           text-align: center;
@@ -616,6 +631,110 @@
       .goToAppsRight {
         width: 400px;
         height: 500px;
+      }
+    }
+  }
+}
+
+@media (max-width: 460px) {
+  .main {
+    .hero {
+      width: 100%;
+      margin-top: 2rem;
+      padding: 0 1rem;
+
+      .heroHeader {
+        width: 100%;
+
+        .heroHeaderTitle {
+          width: 100%;
+          display: flex;
+          flex-direction: column;
+          margin-bottom: 1rem;
+
+          h2 {
+            margin-left: 0;
+            font-size: constants.$h4;
+          }
+          .changingWords {
+            margin-left: 38%;
+            font-size: constants.$h4;
+          }
+          .heroHeaderTitleScribble {
+            display: none;
+          }
+        }
+        p {
+          width: 100%;
+          font-size: constants.$bodyLarge;
+        }
+      }
+      .btns {
+        width: 100%;
+        margin-top: 1rem;
+        padding: 0 1rem;
+        flex-direction: column;
+        align-items: center;
+      }
+
+      .heroFooter {
+        margin-top: 0;
+
+        .heroFooterDiv {
+          width: 100%;
+          display: flex;
+          flex-direction: column;
+
+          margin-top: 0;
+          gap: 0;
+
+          hr {
+            width: 100%;
+            background-color: constants.$ternaryColor;
+            opacity: 0.3;
+
+            padding: 0 80px;
+          }
+        }
+      }
+    }
+
+    .whatWeOffer {
+      padding: 0 1rem;
+
+      .marketPlaceHeader {
+        div {
+          width: 100%;
+
+          h4 {
+            font-size: constants.$h5;
+          }
+
+          p {
+            font-size: constants.$bodyLarge;
+          }
+        }
+      }
+
+      .marketPlaceItems {
+        width: 100%;
+        margin-top: 3rem;
+
+        .marketPlaceItemsDiv {
+          width: 100%;
+          display: flex;
+          flex-direction: column;
+
+          .marketPlaceItemsDivGrid {
+            width: 100%;
+            padding: 0;
+          }
+
+          .marketPlaceItemsImage {
+            width: 342px;
+            height: 228px;
+          }
+        }
       }
     }
   }
