@@ -244,7 +244,7 @@
       flex-direction: column;
       gap: 64px;
       width: 100%;
-      margin-top: 96px;
+      margin-top: 6rem;
 
       .marketPlaceItemsDiv {
         width: 100%;
@@ -300,7 +300,6 @@
   .CTA {
     margin-top: 100px;
     .whyJoinBtns {
-      width: 100%;
       margin-top: 90px;
       width: 100%;
       padding: 0 112px;
@@ -719,11 +718,13 @@
       .marketPlaceItems {
         width: 100%;
         margin-top: 3rem;
+        gap: 3rem;
 
         .marketPlaceItemsDiv {
           width: 100%;
           display: flex;
           flex-direction: column;
+          gap: 2.5rem;
 
           .marketPlaceItemsDivGrid {
             width: 100%;
@@ -731,9 +732,28 @@
           }
 
           .marketPlaceItemsImage {
-            width: 342px;
-            height: 228px;
+            width: 100%;
+            padding: 0;
           }
+        }
+      }
+    }
+
+    .CTA {
+      margin-top: 4rem;
+      width: 100%;
+      padding: 0 1rem;
+
+      .whyJoinBtns {
+        margin-top: 0;
+        padding: 0;
+
+        .whyJoinBtnSection {
+          width: 100%;
+          padding: 0;
+          margin-top: 2rem;
+          flex-direction: column;
+          justify-content: center;
         }
       }
     }

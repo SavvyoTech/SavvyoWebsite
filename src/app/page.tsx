@@ -8,52 +8,6 @@ import { useEffect, useState } from "react";
 import { workerData } from "worker_threads";
 import { useMediaQuery } from "@mui/material";
 
-const GridItem = ({
-  title,
-  desc1,
-}: // desc2,
-// icon,
-{
-  title: string;
-  desc1: string;
-  // icon: string;
-}) => {
-  return (
-    <div className={styles.gridItem}>
-      {/* <Image
-        src={icon}
-        alt="grid item"
-        width={48}
-        height={48}
-        className={styles.gridItemImage}
-      /> */}
-      <h5>{title}</h5>
-      <div className={styles.gridItemInfo}>
-        <div className={styles.gridItemInfoBox}>
-          <Image
-            src="/icons/check-icon.svg"
-            alt="grid item"
-            width={28}
-            height={28}
-            // className={styles.gridItem}
-          />
-          <p>{desc1}</p>
-        </div>
-        {/* <div className={styles.gridItemInfoBox}>
-          <Image
-            src="/icons/check-icon.svg"
-            alt="grid item"
-            width={28}
-            height={28}
-            // className={styles.gridItem}
-          />
-          <p>{desc2}</p>
-        </div> */}
-      </div>
-    </div>
-  );
-};
-
 const BlogItem = ({
   title,
   desc,
@@ -92,6 +46,107 @@ const BlogItem = ({
   );
 };
 
+const WhatWeOfferItems = ({
+  img,
+  title,
+  desc1,
+  reverse,
+}: {
+  img: string;
+  title: string;
+  desc1: string;
+  reverse: boolean;
+}) => {
+  return (
+    <motion.div
+      className={styles.marketPlaceItemsDiv}
+      initial={{ opacity: 0, y: 50 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.5, ease: "easeInOut" }}
+    >
+      {reverse ? (
+        <>
+          <motion.div
+            initial={{ opacity: 0, x: "-100%" }}
+            whileInView={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.5, ease: "easeInOut" }}
+            className={styles.marketPlaceItemsImage}
+          >
+            <Image
+              src={img}
+              alt="community image"
+              width={589}
+              height={426}
+              layout="intrinsic"
+              // className={styles.marketPlaceItemsImage}
+            />
+          </motion.div>
+          <motion.div
+            initial={{ opacity: 0, x: "100%" }}
+            whileInView={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.5, ease: "easeInOut" }}
+            className={styles.marketPlaceItemsDivGrid}
+          >
+            <div className={styles.gridItem}>
+              <h5>{title}</h5>
+              <div className={styles.gridItemInfo}>
+                <div className={styles.gridItemInfoBox}>
+                  <Image
+                    src="/icons/check-icon.svg"
+                    alt="grid item"
+                    width={28}
+                    height={28}
+                  />
+                  <p>{desc1}</p>
+                </div>
+              </div>
+            </div>
+          </motion.div>
+        </>
+      ) : (
+        <>
+          <motion.div
+            initial={{ opacity: 0, x: "-100%" }}
+            whileInView={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.5, ease: "easeInOut" }}
+            className={styles.marketPlaceItemsDivGrid}
+          >
+            <div className={styles.gridItem}>
+              <h5>{title}</h5>
+              <div className={styles.gridItemInfo}>
+                <div className={styles.gridItemInfoBox}>
+                  <Image
+                    src="/icons/check-icon.svg"
+                    alt="grid item"
+                    width={28}
+                    height={28}
+                  />
+                  <p>{desc1}</p>
+                </div>
+              </div>
+            </div>
+          </motion.div>
+          <motion.div
+            initial={{ opacity: 0, x: "100%" }}
+            whileInView={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.5, ease: "easeInOut" }}
+            className={styles.marketPlaceItemsImage}
+          >
+            <Image
+              src={img}
+              alt="community image"
+              width={589}
+              height={426}
+              layout="intrinsic"
+              // className={styles.marketPlaceItemsImage}
+            />
+          </motion.div>
+        </>
+      )}
+    </motion.div>
+  );
+};
+
 export default function HomePage() {
   const [currentWord, setCurrentWord] = useState(0);
   const isSmallScreen = useMediaQuery("(max-width:460px)");
@@ -121,7 +176,7 @@ export default function HomePage() {
     };
 
     sequence();
-  }, [controls]);
+  }, [controls, words.length]);
 
   return (
     <main className={styles.main}>
@@ -321,141 +376,33 @@ export default function HomePage() {
           </div>
         </div>
         <div className={styles.marketPlaceItems}>
-          <motion.div
-            className={styles.marketPlaceItemsDiv}
-            initial={{ opacity: 0, y: 50 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5, ease: "easeInOut" }}
-          >
-            <motion.div
-              initial={{ opacity: 0, x: "-100%" }}
-              whileInView={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.5, ease: "easeInOut" }}
-              className={styles.marketPlaceItemsDivGrid}
-            >
-              <GridItem
-                title="Built on Community"
-                desc1="Savvyo is where people share and seek authentic opinions on all aspects of life. Unlike traditional social platforms, we focus on real experiences and insights. Connect, share, and learn in a community that values authenticity."
-                // desc2="Seasonal Fruits and Vegetables: Enjoy the best of each season with our handpicked selection of fruits and vegetables."
-                // icon="/icons/chat-icon.svg"
-              />
-            </motion.div>
-            <motion.div
-              initial={{ opacity: 0, x: "100%" }}
-              whileInView={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.5, ease: "easeInOut" }}
-              className={styles.marketPlaceItemsImage}
-            >
-              <Image
-                src="/images/home/home-img1.svg"
-                alt="community image"
-                width={558}
-                height={426}
-              />
-            </motion.div>
-          </motion.div>
-          <motion.div
-            className={styles.marketPlaceItemsDiv}
-            initial={{ opacity: 0, y: 50 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5, ease: "easeInOut" }}
-          >
-            <motion.div
-              initial={{ opacity: 0, x: "-100%" }}
-              whileInView={{ opacity: 1, x: 0 }}
-              transition={{ delay: 0.5, duration: 0.5, ease: "easeInOut" }}
-              className={styles.marketPlaceItemsImage}
-            >
-              <Image
-                src="/images/home/home-img2.svg"
-                alt="community image"
-                width={589}
-                height={426}
-                // className={styles.marketPlaceItemsImage}
-              />
-            </motion.div>
-            <motion.div
-              initial={{ opacity: 0, x: "100%" }}
-              whileInView={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.5, ease: "easeInOut" }}
-              className={styles.marketPlaceItemsDivGrid}
-            >
-              <GridItem
-                title="E-commerce for the Smartphone Era"
-                desc1="Savvyo combines a fun, engaging shopping experience with great prices. Adapted to users' habits and needs, our platform is versatile, offering both value for money and a vibrant community space."
-                // desc2="Snacks and Beverages: Find your favorite snacks, teas, and coffees for a perfect break or a quick refreshment."
-                // icon="/icons/lightning-icon.svg"
-              />
-            </motion.div>
-          </motion.div>
-          <motion.div
-            initial={{ opacity: 0, y: 50 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5, ease: "easeInOut" }}
-            className={styles.marketPlaceItemsDiv}
-          >
-            <motion.div
-              initial={{ opacity: 0, x: "-100%" }}
-              whileInView={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.5, ease: "easeInOut" }}
-              className={styles.marketPlaceItemsDivGrid}
-            >
-              <GridItem
-                title=" Team Buying for Better Deals"
-                desc1="Invite friends or form teams to get better prices. Savvyo enhances the social shopping experience, creating a sense of belonging. More users lead to better experiences, growing our community and services."
-                // desc2="Personal Care: High-quality personal care items, including skincare, haircare, and wellness products."
-                // icon="/icons/user-gen-icon.svg"
-              />
-            </motion.div>
-            <motion.div
-              initial={{ opacity: 0, x: "100%" }}
-              whileInView={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.5, ease: "easeInOut" }}
-              className={styles.marketPlaceItemsImage}
-            >
-              <Image
-                src="/images/home/home-img3.svg"
-                alt="community image"
-                width={589}
-                height={426}
-              />
-            </motion.div>
-          </motion.div>
-          <motion.div
-            initial={{ opacity: 0, y: 50 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5, ease: "easeInOut" }}
-            className={styles.marketPlaceItemsDiv}
-          >
-            <motion.div
-              initial={{ opacity: 0, x: "-100%" }}
-              whileInView={{ opacity: 1, x: 0 }}
-              transition={{ ease: "easeInOut" }}
-              className={styles.marketPlaceItemsImage}
-            >
-              <Image
-                src="/images/home/home-img4.svg"
-                alt="community image"
-                width={589}
-                height={426}
-              />
-            </motion.div>
+          <WhatWeOfferItems
+            title="Built on Community"
+            desc1="Savvyo is where people share and seek authentic opinions on all aspects of life. Unlike traditional social platforms, we focus on real experiences and insights. Connect, share, and learn in a community that values authenticity."
+            img="/images/home/home-img1.svg"
+            reverse={false}
+          />
 
-            <motion.div
-              className={styles.marketPlaceItemsDivGrid}
-              initial={{ opacity: 0, x: "100%" }}
-              whileInView={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.5, ease: "easeInOut" }}
-              // style={{ paddingRight: "96px" }}
-            >
-              <GridItem
-                title="Live Sale: A Win-Win"
-                desc1="Discover and buy products in real time. Users enjoy an interactive shopping experience, while sellers and new brands gain instant visibility and direct customer connections."
-                // desc2="Accessories: Enhance your tech experience with top-notch accessories for all your devices."
-                // icon="/icons/lightning-icon.svg"
-              />
-            </motion.div>
-          </motion.div>
+          <WhatWeOfferItems
+            title="E-commerce for the Smartphone Era"
+            desc1="Savvyo offers a wide range of products designed to meet your needs and enhance your lifestyle. Explore our diverse categories and discover why Savvyo is your go-to platform for quality and value."
+            img="/images/home/home-img2.svg"
+            reverse={isSmallScreen ? false : true}
+          />
+
+          <WhatWeOfferItems
+            title=" Team Buying for Better Deals"
+            desc1="Invite friends or form teams to get better prices. Savvyo enhances the social shopping experience, creating a sense of belonging. More users lead to better experiences, growing our community and services."
+            img="/images/home/home-img3.svg"
+            reverse={false}
+          />
+
+          <WhatWeOfferItems
+            title="Live Sale: A Win-Win"
+            desc1="Discover and buy products in real time. Users enjoy an interactive shopping experience, while sellers and new brands gain instant visibility and direct customer connections."
+            img="/images/home/home-img4.svg"
+            reverse={isSmallScreen ? false : true}
+          />
         </div>
       </motion.section>
 

@@ -102,8 +102,8 @@ export default function SellerForm() {
           Join Our Vibrant Seller Community
         </Typography>
         <Typography typography={"body1"}>
-          We're excited to welcome you to our platform where your business can
-          thrive. Please provide your details below to get started on your
+          We&apos;re excited to welcome you to our platform where your business
+          can thrive. Please provide your details below to get started on your
           journey with us.
         </Typography>
       </div>
