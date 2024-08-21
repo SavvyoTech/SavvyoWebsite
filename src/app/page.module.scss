@@ -350,6 +350,8 @@
           padding: 12px 18px;
           border-radius: 8px;
           font-size: constants.$body;
+          border: 1px solid constants.$ternaryColor;
+
           transition: all 0.5s ease;
           &:hover {
             scale: 1.05;
@@ -386,7 +388,7 @@
           color: constants.$h2Color;
           text-align: center;
           margin-top: 20px;
-          width: 768px;
+          max-width: 768px;
           line-height: 1.75rem;
         }
 
@@ -418,6 +420,8 @@
             padding: 12px 18px;
             border-radius: 8px;
             color: constants.$baseColor;
+            border: 1px solid constants.$ternaryColor;
+
             font-size: constants.$body;
             transition: all 0.5s ease;
             &:hover {
@@ -494,7 +498,7 @@
           margin-bottom: 16px;
         }
 
-        h3 {
+        h4 {
           color: constants.$primaryColor;
         }
         .blogsDesc {
@@ -547,6 +551,12 @@
           display: flex;
           align-items: center;
           justify-content: space-between;
+          transition: all 0.5s ease;
+          cursor: pointer;
+
+          &:hover {
+            scale: 1.01;
+          }
 
           h6 {
             color: constants.$primaryColor;
@@ -567,6 +577,9 @@
           margin-top: 20px;
         }
       }
+    }
+    .toBlogsBtnMob {
+      display: none;
     }
   }
 
@@ -628,8 +641,7 @@
       }
 
       .goToAppsRight {
-        width: 400px;
-        height: 500px;
+        display: flex;
       }
     }
   }
@@ -637,6 +649,7 @@
 
 @media (max-width: 460px) {
   .main {
+    width: 100%;
     .hero {
       width: 100%;
       margin-top: 2rem;
@@ -700,6 +713,7 @@
 
     .whatWeOffer {
       padding: 0 1rem;
+      width: 100%;
 
       .marketPlaceHeader {
         div {
@@ -717,7 +731,7 @@
 
       .marketPlaceItems {
         width: 100%;
-        margin-top: 3rem;
+        margin: 3rem 0;
         gap: 3rem;
 
         .marketPlaceItemsDiv {
@@ -737,23 +751,239 @@
           }
         }
       }
+
+      hr {
+        width: 100%;
+        background-color: constants.$ternaryColor;
+        opacity: 0.3;
+        padding: 0 80px;
+      }
     }
 
     .CTA {
-      margin-top: 4rem;
+      margin-top: 3rem;
       width: 100%;
       padding: 0 1rem;
+
+      hr {
+        width: 100%;
+        background-color: constants.$ternaryColor;
+        opacity: 0.3;
+        padding: 0 1rem;
+      }
 
       .whyJoinBtns {
         margin-top: 0;
         padding: 0;
+        margin-bottom: 4rem;
 
         .whyJoinBtnSection {
           width: 100%;
           padding: 0;
-          margin-top: 2rem;
+          margin-top: 0;
           flex-direction: column;
           justify-content: center;
+          gap: 2rem;
+
+          div {
+            p {
+              font-size: constants.$body;
+            }
+          }
+
+          .whyJoinBtnContainer {
+            width: 100%;
+            flex-direction: column;
+
+            .whyJoinBtnLink1 {
+              width: 100%;
+              font-size: constants.$body;
+              display: flex;
+              justify-content: center;
+              align-items: center;
+            }
+
+            .whyJoinBtnLink2 {
+              width: 100%;
+              font-size: constants.$body;
+              display: flex;
+              justify-content: center;
+              align-items: center;
+            }
+          }
+        }
+      }
+    }
+
+    .community {
+      width: 100%;
+      margin-top: 3rem;
+      margin-bottom: 0;
+      padding: 0 1rem;
+      hr {
+        width: 100%;
+        background-color: constants.$ternaryColor;
+        opacity: 0.3;
+        padding: 0 1rem;
+      }
+
+      .whyJoinBtns {
+        width: 100%;
+        margin-bottom: 5.2rem;
+        .whyJoinBtnSection {
+          width: 100%;
+          padding: 0;
+
+          h2 {
+            font-size: constants.$h4;
+          }
+
+          .whyJoinBtnContainer {
+            width: 100%;
+            flex-direction: column;
+
+            .whyJoinBtnLink1 {
+              width: 100%;
+              display: flex;
+              justify-content: center;
+              align-items: center;
+            }
+
+            .whyJoinBtnLink2 {
+              width: 100%;
+              display: flex;
+              justify-content: center;
+              align-items: center;
+            }
+          }
+        }
+
+        .communityImage1 {
+          display: none;
+        }
+        .communityImage2 {
+          display: none;
+        }
+        .communityMessage2 {
+          display: none;
+        }
+        .communityImage3 {
+          display: none;
+        }
+        .communityImage4 {
+          opacity: 0.3;
+          display: flex;
+          bottom: -8rem;
+          left: 0;
+        }
+        .communityImage5 {
+          display: none;
+        }
+        .communityImage6 {
+          display: flex;
+          top: -1.1rem;
+          left: 60%;
+          rotate: 10deg;
+          opacity: 0.3;
+        }
+      }
+    }
+
+    .blogs {
+      width: 100%;
+      margin-top: 4rem;
+      padding: 0 1rem;
+
+      .blogsHeader {
+        width: 100%;
+        padding: 0;
+        margin: 0;
+
+        .blogsHeaderDiv {
+          .blogsDesc {
+            margin-top: 1rem;
+          }
+        }
+
+        .toBlogsBtn {
+          display: none;
+        }
+      }
+
+      .blogsGrid {
+        padding: 0;
+        margin: 3rem 0;
+        display: flex;
+        width: 100%;
+        flex-direction: column;
+        gap: 3rem;
+
+        .blogItem {
+          width: 100%;
+
+          .blogItemImage {
+            width: 100%;
+          }
+          .blogItemTag {
+            margin-top: 0.2rem;
+          }
+        }
+      }
+
+      .toBlogsBtnMob {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 10px;
+        background-color: constants.$primaryColor;
+        padding: 12px 18px;
+        border-radius: 8px;
+        color: constants.$baseColor;
+        border: 1px solid constants.$ternaryColor;
+
+        font-size: constants.$body;
+        transition: all 0.5s ease;
+        &:hover {
+          scale: 1.05;
+        }
+      }
+    }
+
+    .goToApps {
+      width: 100%;
+      padding: 0 1rem;
+      margin-top: 4rem;
+
+      .goToAppsDiv {
+        width: 100%;
+        padding: 0;
+        display: flex;
+        flex-direction: column;
+        gap: 2rem;
+
+        .goToAppsLeft {
+          width: 100%;
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          justify-content: center;
+
+          h3 {
+            font-size: constants.$h5;
+            text-align: center;
+          }
+
+          .goToAppsBtns {
+            margin-top: 2rem;
+          }
+        }
+
+        .goToAppsRight {
+          width: 100%;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          margin-top: 4rem;
         }
       }
     }

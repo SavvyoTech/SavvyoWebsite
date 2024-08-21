@@ -404,6 +404,7 @@ export default function HomePage() {
             reverse={isSmallScreen ? false : true}
           />
         </div>
+        {isSmallScreen && <hr />}
       </motion.section>
 
       <motion.section
@@ -419,16 +420,31 @@ export default function HomePage() {
               <h5>Reach Millions of Customers Nationwide</h5>
               <p>With SAVVYO&apos;s Zero Commission Model</p>
             </div>
+
             <div className={styles.whyJoinBtnContainer}>
-              <Link href="/about" className={styles.whyJoinBtnLink1}>
-                Why Savvyo?
-              </Link>
-              <Link href="/careers" className={styles.whyJoinBtnLink2}>
-                Become a Seller
-              </Link>
+              {isSmallScreen ? (
+                <>
+                  <Link href="/careers" className={styles.whyJoinBtnLink2}>
+                    Become a Seller
+                  </Link>
+                  <Link href="/about" className={styles.whyJoinBtnLink1}>
+                    Why Savvyo?
+                  </Link>
+                </>
+              ) : (
+                <>
+                  <Link href="/about" className={styles.whyJoinBtnLink1}>
+                    Why Savvyo?
+                  </Link>
+                  <Link href="/careers" className={styles.whyJoinBtnLink2}>
+                    Become a Seller
+                  </Link>
+                </>
+              )}
             </div>
           </div>
         </div>
+        {isSmallScreen && <hr />}
       </motion.section>
 
       <motion.section
@@ -447,18 +463,37 @@ export default function HomePage() {
               individuals and share your passion.
             </p>
             <div className={styles.whyJoinBtnContainer}>
-              <Link href="/about" className={styles.whyJoinBtnLink1}>
-                Create a community
-              </Link>
-              <Link href="/careers" className={styles.whyJoinBtnLink2}>
-                Join our community{" "}
-                <Image
-                  src="/images/home/plus-icon.svg"
-                  alt="plus icon"
-                  width={18}
-                  height={18}
-                />
-              </Link>
+              {isSmallScreen ? (
+                <>
+                  <Link href="/careers" className={styles.whyJoinBtnLink2}>
+                    Join our community{" "}
+                    <Image
+                      src="/images/home/plus-icon.svg"
+                      alt="plus icon"
+                      width={18}
+                      height={18}
+                    />
+                  </Link>
+                  <Link href="/about" className={styles.whyJoinBtnLink1}>
+                    Create a community
+                  </Link>
+                </>
+              ) : (
+                <>
+                  <Link href="/about" className={styles.whyJoinBtnLink1}>
+                    Create a community
+                  </Link>
+                  <Link href="/careers" className={styles.whyJoinBtnLink2}>
+                    Join our community{" "}
+                    <Image
+                      src="/images/home/plus-icon.svg"
+                      alt="plus icon"
+                      width={18}
+                      height={18}
+                    />
+                  </Link>
+                </>
+              )}
             </div>
           </div>
 
@@ -512,6 +547,7 @@ export default function HomePage() {
             className={styles.communityImage6}
           />
         </div>
+        {isSmallScreen && <hr />}
       </motion.section>
 
       <section id="section5" className={styles.blogs}>
@@ -549,6 +585,9 @@ export default function HomePage() {
             tag="Software Engineering"
           />
         </div>
+        <Link href="/blogs" className={styles.toBlogsBtnMob}>
+          View all posts
+        </Link>
       </section>
 
       <section id="section6" className={styles.goToApps}>
@@ -595,11 +634,16 @@ export default function HomePage() {
             transition={{ duration: 0.3, ease: "easeInOut" }}
           >
             <Image
-              src="/images/home/iphone.svg"
+              src={
+                isSmallScreen
+                  ? "/images/home/iphone-mob.svg"
+                  : "/images/home/iphone.svg"
+              }
               alt="go to apps"
-              width={400}
+              width={isSmallScreen ? 284 : 400}
               height={500}
-              className={styles.goToAppsRight}
+              layout="intrinsic"
+              className={styles.goToAppsRightImg}
             />
           </motion.div>
         </div>
