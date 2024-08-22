@@ -2,62 +2,175 @@
 import { useRef } from "react";
 import styles from "./page.module.scss";
 import Image from "next/image";
-import GridItemProduct from "../components/gridItemProduct/gridItemProduct";
 import { Button } from "@mui/material";
 import Link from "next/link";
 
 import { motion } from "framer-motion";
+import { useMediaQuery } from "@mui/material";
 
-const GridItem = ({
+const GridItemProduct = ({
   title,
-  desc1,
-  desc2,
+  description,
   icon,
 }: {
   title: string;
-  desc1: string;
-  desc2: string;
+  description: string;
   icon: string;
 }) => {
   return (
     <div className={styles.gridItem}>
-      <Image
-        src={icon}
-        alt="grid item"
-        width={48}
-        height={48}
-        className={styles.gridItemImage}
-      />
-      <h5>{title}</h5>
-      <div className={styles.gridItemInfo}>
-        <div className={styles.gridItemInfoBox}>
-          <Image
-            src="/icons/check-icon.svg"
-            alt="grid item"
-            width={28}
-            height={28}
-            // className={styles.gridItem}
-          />
-          <p>{desc1}</p>
-        </div>
-        <div className={styles.gridItemInfoBox}>
-          <Image
-            src="/icons/check-icon.svg"
-            alt="grid item"
-            width={28}
-            height={28}
-            // className={styles.gridItem}
-          />
-          <p>{desc2}</p>
-        </div>
-      </div>
+      <Image src={icon} alt="grid item" width={48} height={48} />
+      <h6>{title}</h6>
+      <p>{description}</p>
     </div>
+  );
+};
+
+const MarketplaceItems = ({
+  icon,
+  img,
+  title,
+  desc1,
+  desc2,
+  reverse,
+}: {
+  icon: string;
+  img: string;
+  title: string;
+  desc1: string;
+  desc2: string;
+  reverse: boolean;
+}) => {
+  return (
+    <motion.div
+      className={styles.marketPlaceItemsDiv}
+      initial={{ opacity: 0, y: 50 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.5, ease: "easeInOut" }}
+    >
+      {reverse ? (
+        <>
+          <motion.div
+            initial={{ opacity: 0, x: "-100%" }}
+            whileInView={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.5, ease: "easeInOut" }}
+            className={styles.marketPlaceItemsImage}
+          >
+            <Image
+              src={img}
+              alt="community image"
+              width={589}
+              height={426}
+              layout="intrinsic"
+              // className={styles.marketPlaceItemsImage}
+            />
+          </motion.div>
+          <motion.div
+            initial={{ opacity: 0, x: "100%" }}
+            whileInView={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.5, ease: "easeInOut" }}
+            className={styles.marketPlaceItemsDivGrid}
+          >
+            <div className={styles.gridItem}>
+              <Image
+                src={icon}
+                alt="grid item"
+                width={48}
+                height={48}
+                className={styles.gridItemImage}
+              />
+              <h5>{title}</h5>
+              <div className={styles.gridItemInfo}>
+                <div className={styles.gridItemInfoBox}>
+                  <Image
+                    src="/icons/check-icon.svg"
+                    alt="grid item"
+                    width={28}
+                    height={28}
+                    // className={styles.gridItem}
+                  />
+                  <p>{desc1}</p>
+                </div>
+                <div className={styles.gridItemInfoBox}>
+                  <Image
+                    src="/icons/check-icon.svg"
+                    alt="grid item"
+                    width={28}
+                    height={28}
+                    // className={styles.gridItem}
+                  />
+                  <p>{desc2}</p>
+                </div>
+              </div>
+            </div>
+          </motion.div>
+        </>
+      ) : (
+        <>
+          <motion.div
+            initial={{ opacity: 0, x: "-100%" }}
+            whileInView={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.5, ease: "easeInOut" }}
+            className={styles.marketPlaceItemsDivGrid}
+          >
+            <div className={styles.gridItem}>
+              <Image
+                src={icon}
+                alt="grid item"
+                width={48}
+                height={48}
+                className={styles.gridItemImage}
+              />
+              <h5>{title}</h5>
+              <div className={styles.gridItemInfo}>
+                <div className={styles.gridItemInfoBox}>
+                  <Image
+                    src="/icons/check-icon.svg"
+                    alt="grid item"
+                    width={28}
+                    height={28}
+                    // className={styles.gridItem}
+                  />
+                  <p>{desc1}</p>
+                </div>
+                <div className={styles.gridItemInfoBox}>
+                  <Image
+                    src="/icons/check-icon.svg"
+                    alt="grid item"
+                    width={28}
+                    height={28}
+                    // className={styles.gridItem}
+                  />
+                  <p>{desc2}</p>
+                </div>
+              </div>
+            </div>
+          </motion.div>
+          <motion.div
+            initial={{ opacity: 0, x: "100%" }}
+            whileInView={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.5, ease: "easeInOut" }}
+            className={styles.marketPlaceItemsImage}
+          >
+            <Image
+              src={img}
+              alt="community image"
+              width={589}
+              height={426}
+              layout="intrinsic"
+              // className={styles.marketPlaceItemsImage}
+            />
+          </motion.div>
+        </>
+      )}
+    </motion.div>
   );
 };
 
 export default function ProductPage() {
   const communityRef = useRef<HTMLDivElement>(null);
   const marketPlaceRef = useRef<HTMLDivElement>(null);
+  const isSmallScreen = useMediaQuery("(max-width:460px)");
 
   const scrollToCommunity = () => {
     if (communityRef.current) {
@@ -77,7 +190,7 @@ export default function ProductPage() {
         <motion.div
           initial={{ opacity: 0, y: 50 }}
           whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5, delay: 0.5, ease: "easeInOut" }}
+          transition={{ duration: 0.5, ease: "easeInOut" }}
           className={styles.heroLeft}
         >
           <h2>SAVVYO Products. For Everyone.</h2>
@@ -157,7 +270,7 @@ export default function ProductPage() {
             transition={{ duration: 0.5, delay: 0.5, ease: "easeInOut" }}
           >
             <Image
-              src="/images/mac-pro.svg"
+              src="/images/product/mac-pro.svg"
               alt="hero image"
               width={1024}
               height={598}
@@ -165,6 +278,22 @@ export default function ProductPage() {
             />
           </motion.div>
         </div>
+
+        {isSmallScreen && (
+          <motion.div
+            initial={{ opacity: 0, x: "-100%" }}
+            whileInView={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.5, ease: "easeInOut" }}
+          >
+            <Image
+              src="/images/product/mac-pro-mob.svg"
+              alt="hero image"
+              width={343}
+              height={200}
+              layout="responsive"
+            />
+          </motion.div>
+        )}
       </section>
 
       <motion.section
@@ -180,10 +309,15 @@ export default function ProductPage() {
           <p>Building Connections. Sharing Experiences. Growing Together.</p>
         </div>
         <Image
-          src="/images/product/community-img.svg"
+          src={
+            isSmallScreen
+              ? "/images/product/community-img-mob.svg"
+              : "/images/product/community-img.svg"
+          }
           alt="community image"
           width={500}
           height={500}
+          layout="responsive"
           className={styles.communityImage}
         />
         <motion.div
@@ -263,10 +397,16 @@ export default function ProductPage() {
             className={styles.whyJoinImgDiv}
           >
             <Image
-              src="/images/mac-pro-mock.svg"
+              // src="/images/product/mac-pro-mock.svg"
+              src={
+                isSmallScreen
+                  ? "/images/product/mac-pro-mock-mob.svg"
+                  : "/images/product/mac-pro-mock.svg"
+              }
               alt="community image"
               width={768}
               height={448}
+              layout="responsive"
               className={styles.whyJoinImage}
             />
           </motion.div>
@@ -287,14 +427,26 @@ export default function ProductPage() {
               Together, we can make the world feel a little smaller and a lot
               more connected
             </p>
-            <div className={styles.whyJoinBtnContainer}>
-              <Link href="/about" className={styles.whyJoinBtnLink1}>
-                About us
-              </Link>
-              <Link href="/careers" className={styles.whyJoinBtnLink2}>
-                Join us
-              </Link>
-            </div>
+
+            {isSmallScreen ? (
+              <div className={styles.whyJoinBtnContainer}>
+                <Link href="/careers" className={styles.whyJoinBtnLink2}>
+                  Join us
+                </Link>
+                <Link href="/about" className={styles.whyJoinBtnLink1}>
+                  About us
+                </Link>
+              </div>
+            ) : (
+              <div className={styles.whyJoinBtnContainer}>
+                <Link href="/about" className={styles.whyJoinBtnLink1}>
+                  About us
+                </Link>
+                <Link href="/careers" className={styles.whyJoinBtnLink2}>
+                  Join us
+                </Link>
+              </div>
+            )}
           </motion.div>
         </div>
       </motion.section>
@@ -311,7 +463,7 @@ export default function ProductPage() {
       >
         <div className={styles.marketPlaceHeader}>
           <div>
-            <h4>Features Savvyo’s Product Marketplace</h4>
+            <h4>Savvyo’s Product Marketplace</h4>
             <p>
               At Savvyo, we offer a wide range of products designed to meet your
               needs and enhance your lifestyle. Explore our diverse categories
@@ -321,94 +473,50 @@ export default function ProductPage() {
           </div>
         </div>
         <div className={styles.marketPlaceItems}>
-          <div className={styles.marketPlaceItemsDiv}>
-            <div className={styles.marketPlaceItemsDivGrid}>
-              <GridItem
-                title="Fresh Produce"
-                desc1="Onions and Potatoes: Start with our beta launch staples – fresh, farm-direct onions and potatoes. Quality you can trust, sourced from local farmers."
-                desc2="Seasonal Fruits and Vegetables: Enjoy the best of each season with our handpicked selection of fruits and vegetables."
-                icon="/icons/chat-icon.svg"
-              />
-            </div>
-            <Image
-              src="/images/product-img1.svg"
-              alt="community image"
-              width={589}
-              height={426}
-              className={styles.marketPlaceItemsImage}
-            />
-          </div>
-          <div className={styles.marketPlaceItemsDiv}>
-            <Image
-              src="/images/product-img2.svg"
-              alt="community image"
-              width={589}
-              height={426}
-              className={styles.marketPlaceItemsImage}
-            />
-            <div className={styles.marketPlaceItemsDivGrid}>
-              <GridItem
-                title="Grocery Essentials"
-                desc1="Staples and Spices: From rice and lentils to aromatic spices, stock your pantry with essentials for everyday cooking."
-                desc2="Snacks and Beverages: Find your favorite snacks, teas, and coffees for a perfect break or a quick refreshment."
-                icon="/icons/lightning-icon.svg"
-              />
-            </div>
-          </div>
-          <div className={styles.marketPlaceItemsDiv}>
-            <div className={styles.marketPlaceItemsDivGrid}>
-              <GridItem
-                title="Lifestyle Products"
-                desc1="Home and Kitchen: Discover a range of products that make your home cozy and your kitchen efficient."
-                desc2="Personal Care: High-quality personal care items, including skincare, haircare, and wellness products."
-                icon="/icons/user-gen-icon.svg"
-              />
-            </div>
-            <Image
-              src="/images/product-img3.svg"
-              alt="community image"
-              width={589}
-              height={426}
-              className={styles.marketPlaceItemsImage}
-            />
-          </div>
-          <div className={styles.marketPlaceItemsDiv}>
-            <Image
-              src="/images/product-img4.svg"
-              alt="community image"
-              width={589}
-              height={426}
-              className={styles.marketPlaceItemsImage}
-            />
-            <div
-              className={styles.marketPlaceItemsDivGrid}
-              // style={{ paddingRight: "96px" }}
-            >
-              <GridItem
-                title="Electronics and Gadgets"
-                desc1="Smart Devices: Keep up with the latest in technology with our selection of smart devices and gadgets."
-                desc2="Accessories: Enhance your tech experience with top-notch accessories for all your devices."
-                icon="/icons/lightning-icon.svg"
-              />
-            </div>
-          </div>
-          <div className={styles.marketPlaceItemsDiv}>
-            <div className={styles.marketPlaceItemsDivGrid}>
-              <GridItem
-                title="Fashion and Accessories"
-                desc1="Men’s and Women’s Wear: Stylish and affordable clothing for all occasions."
-                desc2="Jewelry and Accessories: Add a touch of elegance to your outfits with our jewelry and accessories."
-                icon="/icons/user-gen-icon.svg"
-              />
-            </div>
-            <Image
-              src="/images/product-img5.svg"
-              alt="community image"
-              width={589}
-              height={426}
-              className={styles.marketPlaceItemsImage}
-            />
-          </div>
+          <MarketplaceItems
+            title="Fresh Produce"
+            desc1="Onions and Potatoes: Start with our beta launch staples – fresh, farm-direct onions and potatoes. Quality you can trust, sourced from local farmers."
+            desc2="Seasonal Fruits and Vegetables: Enjoy the best of each season with our handpicked selection of fruits and vegetables."
+            icon="/icons/chat-icon.svg"
+            img="/images/product/market-img1.svg"
+            reverse={false}
+          />
+
+          <MarketplaceItems
+            title="Grocery Essentials"
+            desc1="Staples and Spices: From rice and lentils to aromatic spices, stock your pantry with essentials for everyday cooking."
+            desc2="Snacks and Beverages: Find your favorite snacks, teas, and coffees for a perfect break or a quick refreshment."
+            icon="/icons/lightning-icon.svg"
+            img="/images/product/market-img2.svg"
+            reverse={isSmallScreen ? false : true}
+          />
+
+          <MarketplaceItems
+            title="Lifestyle Products"
+            desc1="Home and Kitchen: Discover a range of products that make your home cozy and your kitchen efficient."
+            desc2="Personal Care: High-quality personal care items, including skincare, haircare, and wellness products."
+            icon="/icons/user-gen-icon.svg"
+            img="/images/product/market-img3.svg"
+            reverse={false}
+          />
+
+          <MarketplaceItems
+            title="Electronics and Gadgets"
+            desc1="Smart Devices: Keep up with the latest in technology with our selection of smart devices and gadgets."
+            desc2="Accessories: Enhance your tech experience with top-notch accessories for all your devices."
+            icon="/icons/lightning-icon.svg"
+            img="/images/product/market-img4.svg"
+            reverse={isSmallScreen ? false : true}
+          />
+
+          <MarketplaceItems
+            title="Fashion and Accessories"
+            desc1="Men’s and Women’s Wear: Stylish and affordable clothing for all occasions."
+            desc2="Jewelry and Accessories: Add a touch of elegance to your outfits with our jewelry and accessories."
+            icon="/icons/user-gen-icon.svg"
+            img="/images/product/market-img5.svg"
+            reverse={false}
+          />
         </div>
       </motion.section>
 
@@ -440,40 +548,82 @@ export default function ProductPage() {
               icon="/icons/lightning-icon.svg"
             />
           </div>
-          <div className={styles.whyShopItemsGridImages}>
-            <Image
-              src="/images/card.svg"
-              alt="community image"
-              width={480}
-              height={384}
-            />
-            <Image
-              src="/images/user-count-card.svg"
-              alt="community image"
-              width={200}
-              height={200}
-              className={styles.whyShopItemsGridImagesImage}
-            />
-          </div>
-          <div className={styles.whyShopItemsGrid}>
-            <GridItemProduct
-              title="Competitive Pricing"
-              description="Enjoy great deals and value for money with our team buying and live sale features."
-              icon="/icons/user-gen-icon.svg"
-            />
-            <GridItemProduct
-              title="Seamless Experience"
-              description="Our user-friendly interface makes shopping easy and enjoyable."
-              icon="/icons/emoji-icon.svg"
-            />
-          </div>
+          {isSmallScreen ? (
+            <>
+              <div className={styles.whyShopItemsGrid}>
+                <GridItemProduct
+                  title="Competitive Pricing"
+                  description="Enjoy great deals and value for money with our team buying and live sale features."
+                  icon="/icons/user-gen-icon.svg"
+                />
+                <GridItemProduct
+                  title="Seamless Experience"
+                  description="Our user-friendly interface makes shopping easy and enjoyable."
+                  icon="/icons/emoji-icon.svg"
+                />
+              </div>
+              <div className={styles.whyShopItemsGridImages}>
+                <Image
+                  src="/images/card.svg"
+                  alt="community image"
+                  layout="responsive"
+                  width={480}
+                  height={384}
+                />
+                <Image
+                  src="/images/user-count-card.svg"
+                  alt="community image"
+                  width={200}
+                  height={200}
+                  // layout="responsive"
+                  className={styles.whyShopItemsGridImagesImage}
+                />
+              </div>
+            </>
+          ) : (
+            <>
+              <div className={styles.whyShopItemsGridImages}>
+                <Image
+                  src="/images/card.svg"
+                  alt="community image"
+                  width={480}
+                  height={384}
+                />
+                <Image
+                  src="/images/user-count-card.svg"
+                  alt="community image"
+                  width={200}
+                  height={200}
+                  className={styles.whyShopItemsGridImagesImage}
+                />
+              </div>
+              <div className={styles.whyShopItemsGrid}>
+                <GridItemProduct
+                  title="Competitive Pricing"
+                  description="Enjoy great deals and value for money with our team buying and live sale features."
+                  icon="/icons/user-gen-icon.svg"
+                />
+                <GridItemProduct
+                  title="Seamless Experience"
+                  description="Our user-friendly interface makes shopping easy and enjoyable."
+                  icon="/icons/emoji-icon.svg"
+                />
+              </div>
+            </>
+          )}
         </div>
+        <hr />
       </motion.section>
 
       <section id="section6" className={styles.products}>
         <h4>SAVVYO Products</h4>
         <div className={styles.productsItems}>
-          <div className={styles.productsItemsLeft}>
+          <motion.div
+            initial={{ opacity: 0, x: "-100%" }}
+            whileInView={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.5, ease: "easeInOut" }}
+            className={styles.productsItemsLeft}
+          >
             <div>
               <h6>FOR USERS</h6>
               <p>
@@ -522,16 +672,22 @@ export default function ProductPage() {
                 />
               </Link>
             </div>
-          </div>
-          <div className={styles.productsItemsRight}>
+          </motion.div>
+          <motion.div
+            initial={{ opacity: 0, x: "100%" }}
+            whileInView={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.5, ease: "easeInOut" }}
+            className={styles.productsItemsRight}
+          >
             <Image
-              src="/images/product-img6.svg"
+              src="/images/product/product-last-img.svg"
               alt="community image"
+              layout="responsive"
               width={500}
               height={426}
               className={styles.productsItemsRightImage}
             />
-          </div>
+          </motion.div>
         </div>
       </section>
     </main>

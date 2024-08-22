@@ -25,15 +25,14 @@
       p {
         margin-top: 24px;
         color: constants.$h2Color;
-        width: 440px;
+        max-width: 440px;
         font-size: constants.$bodyLarge;
         line-height: 1.875rem;
       }
       .btns {
         display: flex;
-        flex-direction: row;
         margin-top: 48px;
-        gap: 64px;
+        gap: 4rem;
 
         .heroFirst {
           width: 228px;
@@ -141,6 +140,7 @@
       p {
         margin-top: 20px;
         font-size: constants.$bodyXLarge;
+        color: constants.$h2Color;
       }
     }
     .communityImage {
@@ -157,13 +157,30 @@
       grid-template-rows: repeat(2, 1fr);
       grid-column-gap: 32px;
       grid-row-gap: 64px;
-      // padding: 0 32px;
+
+      .gridItem {
+        display: flex;
+        flex-direction: column;
+        height: 100%;
+        width: 100%;
+
+        h6 {
+          color: constants.$primaryColor;
+          margin-top: 20px;
+          font-weight: 600;
+          font-size: constants.$bodyXLarge;
+        }
+        p {
+          margin-top: 8px;
+          color: constants.$h2Color;
+          line-height: 1.875rem;
+        }
+      }
     }
   }
 
   .whyJoin {
     padding-left: 80px;
-    // margin-left: 80px;
     margin: 96px 0 0 0;
     width: 100%;
 
@@ -185,6 +202,25 @@
         grid-row-gap: 48px;
         padding: 0 32px;
         z-index: 1;
+
+        .gridItem {
+          display: flex;
+          flex-direction: column;
+          height: 100%;
+          width: 100%;
+
+          h6 {
+            color: constants.$primaryColor;
+            margin-top: 20px;
+            font-weight: 600;
+            font-size: constants.$bodyXLarge;
+          }
+          p {
+            margin-top: 8px;
+            color: constants.$h2Color;
+            line-height: 1.875rem;
+          }
+        }
       }
       .whyJoinImgDiv {
         width: 50%;
@@ -203,7 +239,6 @@
     .whyJoinBtns {
       width: 100%;
       margin-top: 90px;
-      width: 100%;
       margin-right: 96px;
       padding-right: 80px;
 
@@ -225,6 +260,7 @@
           width: 100%;
           text-align: center;
           margin-top: 20px;
+          color: constants.$h2Color;
         }
 
         .whyJoinBtnContainer {
@@ -263,13 +299,6 @@
     }
   }
 
-  //   hr {
-  //     width: 100%;
-  //     height: 0.5px;
-  //     background-color: rgba(constants.$ternaryColor, 0.5);
-  //     padding: 0 80px;
-  //   }
-
   .marketPlace {
     margin-top: 96px;
     padding: 96px 80px 0 80px;
@@ -283,7 +312,7 @@
       justify-content: center;
 
       div {
-        width: 768px;
+        max-width: 768px;
         h4 {
           color: constants.$primaryColor;
           text-align: center;
@@ -301,7 +330,8 @@
       display: flex;
       flex-direction: column;
       width: 100%;
-      margin-top: 96px;
+      margin-top: 6rem;
+      gap: 4rem;
 
       .marketPlaceItemsDiv {
         width: 100%;
@@ -310,13 +340,44 @@
 
         .marketPlaceItemsDivGrid {
           width: 50%;
-          padding: 0 0 80px 96px;
+          padding: 0 44px;
+
+          .gridItem {
+            display: flex;
+            flex-direction: column;
+            width: 100%;
+
+            h5 {
+              margin-top: 20px;
+              color: constants.$bodyColor;
+            }
+
+            .gridItemInfo {
+              margin-top: 2rem;
+              display: flex;
+              flex-direction: column;
+              gap: 20px;
+              width: 100%;
+              padding-left: 1rem;
+
+              .gridItemInfoBox {
+                display: flex;
+                gap: 12px;
+
+                p {
+                  line-height: 1.75rem;
+                  font-size: constants.$bodyLarge;
+                  color: constants.$h2Color;
+                }
+              }
+            }
+          }
         }
         .marketPlaceItemsImage {
-          padding: 60px;
+          padding: 0 3rem;
+          margin: 0;
           width: 50%;
           height: auto;
-          margin-bottom: 0;
         }
       }
     }
@@ -343,7 +404,7 @@
         text-align: center;
         font-size: constants.$bodyXLarge;
         color: constants.$h2Color;
-        width: 768px;
+        max-width: 768px;
       }
     }
 
@@ -356,6 +417,24 @@
         width: 30%;
         display: flex;
         flex-direction: column;
+        gap: 2rem;
+
+        .gridItem {
+          width: 100%;
+          padding: 0;
+
+          h6 {
+            margin-top: 1rem;
+            font-size: constants.$bodyLarge;
+            color: constants.$bodyColor;
+          }
+
+          p {
+            line-height: 1.5rem;
+            margin-top: 4px;
+            color: constants.$h2Color;
+          }
+        }
       }
 
       .whyShopItemsGridImages {
@@ -367,9 +446,9 @@
         // height: 100%;
 
         .whyShopItemsGridImagesImage {
+          width: 220px;
+          height: 220px;
           z-index: 1;
-          width: auto;
-          height: auto;
           margin: 0;
           padding: 0;
           position: absolute;
@@ -411,10 +490,14 @@
           }
           p {
             margin-bottom: 20px;
+            color: constants.$h2Color;
           }
           .productsItemsLeftLink {
             width: max-content;
-
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 8px;
             margin-bottom: 32px;
             transition: all 0.5s ease;
 
@@ -442,33 +525,316 @@
       }
     }
   }
+}
 
-  .gridItem {
-    display: flex;
-    flex-direction: column;
+@media (max-width: 460px) {
+  .main {
     width: 100%;
+    padding: 0;
+    margin-top: 4rem;
 
-    h5 {
-      margin-top: 20px;
-      color: constants.$bodyColor;
+    .hero {
+      width: 100%;
+      margin: 4rem 0 0 0;
+      padding: 0 1rem;
+      flex-direction: column;
+
+      .heroLeft {
+        width: 100%;
+        padding: 0;
+
+        h2 {
+          font-size: constants.$h4;
+          text-align: center;
+        }
+        p {
+          width: 100%;
+          text-align: center;
+          margin-top: 1rem;
+        }
+        .btns {
+          width: 100%;
+          margin: 4rem 0;
+          flex-direction: column;
+          align-items: center;
+          justify-content: center;
+        }
+      }
+
+      .heroRight {
+        display: none;
+      }
     }
 
-    .gridItemInfo {
-      margin-top: 2rem;
+    .community {
+      width: 100%;
+      padding: 4rem 1rem;
+      margin-top: 0;
+
+      .communityHeader {
+        width: 100%;
+        padding: 0;
+        h4 {
+          text-align: center;
+          font-size: constants.$h5;
+        }
+        p {
+          width: 100%;
+          text-align: center;
+          margin-top: 1rem;
+          font-size: constants.$bodyLarge;
+        }
+      }
+      .communityImage {
+        margin-top: 3rem;
+      }
+
+      .communityGrid {
+        width: 100%;
+        padding: 0;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        margin-top: 3rem;
+
+        .gridItem {
+          width: 100%;
+          padding: 1rem 1.5rem;
+          background-color: #f2f4f7;
+          border-radius: 1rem;
+
+          p {
+            line-height: 1.5rem;
+          }
+        }
+      }
+    }
+
+    .whyJoin {
+      width: 100%;
+      padding: 0 1rem;
+      margin: 4rem 0;
       display: flex;
       flex-direction: column;
-      gap: 20px;
+
+      h4 {
+        width: 100%;
+        margin: 0;
+        font-size: constants.$h5;
+      }
+
+      .whyJoinDiv {
+        margin-top: 3rem;
+        width: 100%;
+        flex-direction: column;
+        align-items: center;
+
+        .whyJoinGrid {
+          width: 100%;
+          padding: 0;
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          justify-content: center;
+
+          .gridItem {
+            width: 100%;
+
+            p {
+              line-height: 1.5rem;
+            }
+          }
+        }
+
+        .whyJoinImgDiv {
+          width: 100%;
+          padding: 1rem;
+          margin-top: 3rem;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+        }
+      }
+
+      .whyJoinBtns {
+        width: 100%;
+        margin-top: 4rem;
+        padding: 0;
+
+        .whyJoinBtnSection {
+          padding: 2.5rem 1.5rem;
+
+          h4 {
+            font-size: constants.$h5;
+          }
+
+          .whyJoinBtnContainer {
+            width: 100%;
+            flex-direction: column;
+
+            .whyJoinBtnLink1 {
+              width: 100%;
+              display: flex;
+              justify-content: center;
+              align-items: center;
+            }
+            .whyJoinBtnLink2 {
+              width: 100%;
+              display: flex;
+              justify-content: center;
+              align-items: center;
+            }
+          }
+        }
+      }
+    }
+
+    .marketPlace {
       width: 100%;
-      padding-left: 1rem;
+      padding: 4rem 1rem 0 1rem;
+      margin: 4rem 0;
 
-      .gridItemInfoBox {
-        display: flex;
-        gap: 12px;
+      .marketPlaceHeader {
+        width: 100%;
 
+        div {
+          width: 100%;
+
+          h4 {
+            font-size: constants.$h5;
+          }
+          p {
+            font-size: constants.$bodyLarge;
+          }
+        }
+      }
+      .marketPlaceItems {
+        width: 100%;
+        margin: 3rem 0;
+        gap: 3rem;
+
+        .marketPlaceItemsDiv {
+          width: 100%;
+          display: flex;
+          flex-direction: column;
+          gap: 2.5rem;
+
+          .marketPlaceItemsDivGrid {
+            width: 100%;
+            padding: 0;
+          }
+
+          .marketPlaceItemsImage {
+            width: 100%;
+            padding: 0;
+          }
+        }
+      }
+    }
+
+    .whyShop {
+      width: 100%;
+      margin-top: 0;
+      padding: 0 1rem;
+
+      hr {
+        width: 100%;
+        background-color: constants.$ternaryColor;
+        opacity: 0.3;
+        padding: 0 1rem;
+        margin-top: 4rem;
+      }
+
+      .whyShopHeader {
+        h4 {
+          font-size: 2rem;
+        }
         p {
-          line-height: 1.75rem;
+          text-align: left;
           font-size: constants.$bodyLarge;
-          color: constants.$h2Color;
+          line-height: 1.5rem;
+        }
+      }
+
+      .whyShopItems {
+        width: 100%;
+        padding: 0;
+        flex-direction: column;
+        gap: 2.5rem;
+
+        .whyShopItemsGrid {
+          width: 100%;
+          padding: 0;
+          gap: 2.5rem;
+
+          .gridItem {
+            width: 100%;
+            padding: 0;
+
+            h6 {
+              margin-top: 1rem;
+              font-size: constants.$bodyLarge;
+            }
+
+            p {
+              line-height: 1.5rem;
+              margin-top: 4px;
+            }
+          }
+        }
+        .whyShopItemsGridImages {
+          width: 100%;
+
+          .whyShopItemsGridImagesImage {
+            padding: 0;
+            width: 190px;
+            height: 190px;
+            left: 63%;
+            bottom: -40px;
+          }
+        }
+      }
+    }
+
+    .products {
+      padding: 0 1rem;
+      margin: 4rem 0;
+      width: 100%;
+
+      h4 {
+        font-size: constants.$h5;
+        margin-bottom: 3rem;
+        padding: 0;
+      }
+      .productsItems {
+        flex-direction: column;
+        width: 100%;
+
+        .productsItemsLeft {
+          width: 100%;
+          padding: 0 0 0 1.5rem;
+
+          div {
+            width: 100%;
+            padding: 1rem 0;
+            h6 {
+              font-size: constants.$bodyLarge;
+            }
+            p {
+              font-size: 1rem;
+            }
+            .productsItemsLeftLink {
+              margin-bottom: 0;
+            }
+          }
+        }
+
+        .productsItemsRight {
+          width: 100%;
+          padding: 1rem;
+          border-radius: 1rem;
+          margin-top: 3rem;
         }
       }
     }
