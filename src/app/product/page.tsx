@@ -170,8 +170,9 @@ const MarketplaceItems = ({
 export default function ProductPage() {
   const communityRef = useRef<HTMLDivElement>(null);
   const marketPlaceRef = useRef<HTMLDivElement>(null);
-  const isSmallScreen = useMediaQuery("(max-width:460px)");
-
+  const isSmallScreen = useMediaQuery(
+    "(min-width: 320px) and (max-width: 480px)"
+  );
   const scrollToCommunity = () => {
     if (communityRef.current) {
       communityRef.current.scrollIntoView({ behavior: "smooth" });

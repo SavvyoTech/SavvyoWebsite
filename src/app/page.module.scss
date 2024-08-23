@@ -27,27 +27,39 @@
       .heroHeaderTitle {
         position: relative;
         display: flex;
-        width: 100%;
+        align-items: center;
+        justify-content: center;
+        // width: 100%;
+        width: "fit-content";
+        max-width: 768px;
         margin-bottom: 4rem;
 
         h2 {
-          position: absolute;
-          margin-left: 33%;
+          // position: absolute;
+          // margin-left: 33%;
+          margin-right: 1rem;
           color: constants.$primaryColor;
+          white-space: nowrap; /* Prevents wrapping */
         }
 
         .changingWords {
           font-size: constants.$h2;
           font-weight: 600;
           color: constants.$secondaryColor;
-          margin-left: 48%;
+          white-space: nowrap; /* Prevents wrapping */
+
+          width: 11ch; /* Adjust based on the longest word */
+          text-align: left; /* Aligns text to the left within the fixed-width container */
+          display: flex;
+          // justify-content: center;
+
+          // margin-left: 48%;
         }
 
         .heroHeaderTitleScribble {
-          z-index: 1;
           position: absolute;
-          left: 48%;
-          top: 4rem;
+          top: 4.5rem; /* Adjust this value to position the scribble below the word */
+          left: 35%;
         }
 
         // div {
@@ -646,7 +658,7 @@
   }
 }
 
-@media (max-width: 460px) {
+@media (min-width: 320px) and (max-width: 480px) {
   .main {
     width: 100%;
     .hero {
@@ -658,17 +670,23 @@
         width: 100%;
 
         .heroHeaderTitle {
-          width: 100%;
+          // width: 100%;
+          // max-width: 100%;
           display: flex;
-          flex-direction: column;
+          align-items: center;
+          justify-content: center;
+          margin-left: 1rem;
+          // flex-direction: column;
           margin-bottom: 1rem;
 
           h2 {
-            margin-left: 0;
+            margin-left: 1rem;
+            margin-right: 0.5rem;
+
             font-size: constants.$h4;
           }
           .changingWords {
-            margin-left: 38%;
+            // margin-left: 38%;
             font-size: constants.$h4;
           }
           .heroHeaderTitleScribble {

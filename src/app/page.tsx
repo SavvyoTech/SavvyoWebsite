@@ -5,7 +5,6 @@ import styles from "./page.module.scss";
 import Link from "next/link";
 import { motion, useAnimation } from "framer-motion";
 import { useEffect, useState } from "react";
-import { workerData } from "worker_threads";
 import { useMediaQuery } from "@mui/material";
 
 const BlogItem = ({
@@ -148,8 +147,10 @@ const WhatWeOfferItems = ({
 };
 
 export default function HomePage() {
-  const [currentWord, setCurrentWord] = useState(0);
-  const isSmallScreen = useMediaQuery("(max-width:460px)");
+  const [currentWordIndex, setCurrentWordIndex] = useState(0);
+  const isSmallScreen = useMediaQuery(
+    "(min-width: 320px) and (max-width: 480px)"
+  );
 
   const controls = useAnimation();
 
@@ -162,21 +163,14 @@ export default function HomePage() {
   }, [isSmallScreen, controls]);
 
   useEffect(() => {
-    const sequence = async () => {
-      for (let i = 0; i < words.length; i++) {
-        await new Promise((resolve) => setTimeout(resolve, 1000)); // Wait for 1 second
-        await controls.start({ opacity: 1, transition: { duration: 0.5 } });
-        await new Promise((resolve) => setTimeout(resolve, 1000)); // Wait for 1 second
-        // Skip fade-out for the last word to keep it visible
-        if (i < words.length - 1) {
-          await controls.start({ opacity: 0, transition: { duration: 0.5 } });
-          setCurrentWord((prev) => prev + 1);
-        }
-      }
-    };
+    if (currentWordIndex < words.length - 1) {
+      const intervalId = setInterval(() => {
+        setCurrentWordIndex((prevIndex) => prevIndex + 1);
+      }, 2500); // Adjust the timing as needed
 
-    sequence();
-  }, [controls, words.length]);
+      return () => clearInterval(intervalId);
+    }
+  }, [currentWordIndex, words.length]);
 
   return (
     <main className={styles.main}>
@@ -189,23 +183,22 @@ export default function HomePage() {
       >
         <div className={styles.heroHeader}>
           <div className={styles.heroHeaderTitle}>
-            {/* <h2>
-              We are <span>INNOVATION</span>
-            </h2> */}
             <h2>We are</h2>
             <motion.div
-              animate={controls}
+              key={currentWordIndex}
               initial={{ opacity: 0 }}
+              animate={{ opacity: [0, 0.8, 1] }} // Fade in, stay, and fade out
+              transition={{ duration: 2.5, times: [0, 0.5, 1] }} // Adjust the timing
               className={styles.changingWords}
-              // style={{ fontSize: "2rem", textAlign: "center" }}
             >
-              {words[currentWord]}
+              {words[currentWordIndex]}
             </motion.div>
             <Image
               src="/images/home/pen-scribble.svg"
               alt="pen-scribble"
               width={382}
               height={15}
+              layout="intrinsic"
               className={styles.heroHeaderTitleScribble}
             />
           </div>
