@@ -12,7 +12,7 @@ import useMediaQuery from "@mui/material/useMediaQuery";
 export default function AboutPage() {
   const letsConnectRef = useRef<HTMLDivElement>(null);
   const controls = useAnimation();
-  const isSmallScreen = useMediaQuery('(max-width:376px)');
+  const isSmallScreen = useMediaQuery('(min-width: 360px) and (max-width: 480px)');
 
   useEffect(() => {
     if (isSmallScreen) {
