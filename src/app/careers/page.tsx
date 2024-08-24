@@ -70,7 +70,7 @@ export default function CareersPage() {
       </div>
       <div className={styles.formBox}>
         <div className={styles.formProgress}>
-          <Stepper activeStep={activeStep} orientation="vertical">
+          <Stepper activeStep={activeStep} orientation={"vertical"}>
             {steps.map((step, index) => (
               <Step key={step.label}>
                 <StepLabel icon={step.icon}>

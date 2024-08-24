@@ -43,5 +43,32 @@
             padding: 0 5%;
             width: 55%;
         }
+
+    }
+    @media screen and (max-width: 599px){
+        .headBox{
+            align-items: flex-start;
+            padding: 25% 10% 0 10%;
+            p{
+                text-align: left;
+            }
+        }
+        .formBox{
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+
+            hr{
+                display: none;
+            }
+
+            .formProgress{
+                display: none;
+            }
+    
+            .activeForm{
+                width: 90%;
+            }
+        }
     }
 }

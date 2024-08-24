@@ -3,13 +3,21 @@ import React from 'react';
 import Image from 'next/image';
 
 import { Slide, AppBar, Box, Button, Toolbar, useScrollTrigger } from '@mui/material';
+import { useTheme } from '@mui/material/styles';
+import useMediaQuery from '@mui/material/useMediaQuery';
 
 import styles from './header.module.scss';
+import { MobileHeader } from './mobileheader';
 
 const Header: React.FC = () => {
     const trigger = useScrollTrigger();
+    const theme = useTheme();
+    const isMobile = useMediaQuery(theme.breakpoints.down('sm'));
     
-    return (
+    return isMobile ? (
+        <MobileHeader />
+    ):
+    (
         <Slide appear={false} direction="down" in={!trigger}>
             <AppBar component={'header'} elevation={0} className={styles.appBar}>
                 <Toolbar className={styles.toolBar}>
