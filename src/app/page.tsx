@@ -25,6 +25,7 @@ const BlogItem = ({
         alt="grid item"
         width={384}
         height={240}
+        layout="responsive"
         className={styles.blogItemImage}
       />
       <p className={styles.blogItemTag}>{tag}</p>
@@ -76,7 +77,7 @@ const WhatWeOfferItems = ({
               alt="community image"
               width={589}
               height={426}
-              layout="intrinsic"
+              layout="responsive"
               // className={styles.marketPlaceItemsImage}
             />
           </motion.div>
@@ -95,6 +96,7 @@ const WhatWeOfferItems = ({
                     alt="grid item"
                     width={28}
                     height={28}
+                    layout="intrinsic"
                   />
                   <p>{desc1}</p>
                 </div>
@@ -119,6 +121,7 @@ const WhatWeOfferItems = ({
                     alt="grid item"
                     width={28}
                     height={28}
+                    layout="intrinsic"
                   />
                   <p>{desc1}</p>
                 </div>
@@ -136,7 +139,7 @@ const WhatWeOfferItems = ({
               alt="community image"
               width={589}
               height={426}
-              layout="intrinsic"
+              layout="responsive"
               // className={styles.marketPlaceItemsImage}
             />
           </motion.div>
@@ -151,7 +154,9 @@ export default function HomePage() {
   const isSmallScreen = useMediaQuery(
     "(min-width: 320px) and (max-width: 480px)"
   );
-
+  const isTabScreen = useMediaQuery(
+    "(min-width: 768px) and (max-width: 1024px)"
+  );
   const controls = useAnimation();
 
   const words = ["INNOVATION", "CHANGE", "REVOLUTION", "SAVVYO"];
@@ -218,6 +223,7 @@ export default function HomePage() {
                   width={56}
                   height={56}
                   className={styles.heroIconMain}
+                  // layout="intrinsic"
                 />
                 <Image
                   src="/images/home/avatar-left.svg"
@@ -295,6 +301,7 @@ export default function HomePage() {
                 width={314}
                 height={264}
                 className={styles.heroFooterImg}
+                layout="intrinsic"
               />
               <Image
                 src="/images/home/iphone-main.svg"
@@ -372,29 +379,29 @@ export default function HomePage() {
           <WhatWeOfferItems
             title="Built on Community"
             desc1="Savvyo is where people share and seek authentic opinions on all aspects of life. Unlike traditional social platforms, we focus on real experiences and insights. Connect, share, and learn in a community that values authenticity."
-            img="/images/home/home-img1.svg"
+            img={`/images/home/${isTabScreen ? "tab" : "home"}-img1.svg`}
             reverse={false}
           />
 
           <WhatWeOfferItems
             title="E-commerce for the Smartphone Era"
             desc1="Savvyo offers a wide range of products designed to meet your needs and enhance your lifestyle. Explore our diverse categories and discover why Savvyo is your go-to platform for quality and value."
-            img="/images/home/home-img2.svg"
-            reverse={isSmallScreen ? false : true}
+            img={`/images/home/${isTabScreen ? "tab" : "home"}-img2.svg`}
+            reverse={isSmallScreen || isTabScreen ? false : true}
           />
 
           <WhatWeOfferItems
             title=" Team Buying for Better Deals"
             desc1="Invite friends or form teams to get better prices. Savvyo enhances the social shopping experience, creating a sense of belonging. More users lead to better experiences, growing our community and services."
-            img="/images/home/home-img3.svg"
+            img={`/images/home/${isTabScreen ? "tab" : "home"}-img3.svg`}
             reverse={false}
           />
 
           <WhatWeOfferItems
             title="Live Sale: A Win-Win"
             desc1="Discover and buy products in real time. Users enjoy an interactive shopping experience, while sellers and new brands gain instant visibility and direct customer connections."
-            img="/images/home/home-img4.svg"
-            reverse={isSmallScreen ? false : true}
+            img={`/images/home/${isTabScreen ? "tab" : "home"}-img4.svg`}
+            reverse={isSmallScreen || isTabScreen ? false : true}
           />
         </div>
         {isSmallScreen && <hr />}
@@ -622,6 +629,7 @@ export default function HomePage() {
           </motion.div>
           <motion.div
             className={styles.goToAppsRight}
+            style={{ padding: isSmallScreen || isTabScreen ? "0 1rem" : "0" }}
             initial={{ opacity: 0, y: "30%" }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.3, ease: "easeInOut" }}
@@ -633,9 +641,10 @@ export default function HomePage() {
                   : "/images/home/iphone.svg"
               }
               alt="go to apps"
-              width={isSmallScreen ? 284 : 400}
+              width={400}
               height={500}
-              layout="intrinsic"
+              layout="responsive"
+              // layout="intrinsic"
               className={styles.goToAppsRightImg}
             />
           </motion.div>
