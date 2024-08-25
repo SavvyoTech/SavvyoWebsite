@@ -13,6 +13,7 @@ export default function AboutPage() {
   const letsConnectRef = useRef<HTMLDivElement>(null);
   const controls = useAnimation();
   const isSmallScreen = useMediaQuery('(min-width: 360px) and (max-width: 480px)');
+  const isTabScreen = useMediaQuery("(min-width: 768px) and (max-width: 1024px)");
 
   useEffect(() => {
     if (isSmallScreen) {
@@ -138,7 +139,7 @@ export default function AboutPage() {
               <Image
                 src={isSmallScreen? "/images/about-us-mobile.svg" : "/images/about-us1.svg"}
                 alt="Our Journey"
-                width={isSmallScreen? 343: 576}
+                width={isSmallScreen ? 343 : 576}
                 height={isSmallScreen? 240: 654}
                 objectFit="contain"
                 quality={100}
@@ -171,6 +172,7 @@ export default function AboutPage() {
           animate={isSmallScreen ? { opacity: 1, x: 0 } : controls}
           whileInView={{ opacity: 1, x: 0 }}
           transition={{ duration: 0.5, ease: "easeInOut" }}
+          className={styles.letsConnectMotion}
         >
           <div className={styles.letsConnect}>
             <div className={styles.letsConnectDesc}>

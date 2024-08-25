@@ -15,7 +15,6 @@
       align-items: center;
       justify-content: center;
 
-
       p {
         text-align: center;
         margin: 0 0 1rem 0;
@@ -375,6 +374,168 @@
   }
 }
 
+@media (min-width: 768px) and (max-width: 1024px) {
+  .main {
+
+    .aboutSection1 {
+      padding: 96px 0;
+      gap: 64px;
+
+      .ourValuesHead {
+        padding: 32px 0 64px 0;
+        margin: 0 auto;
+        width: 75%;
+
+        .subheading {
+          font-size: 16px;
+        }
+
+        .heading {
+          font-size: 36px;
+        }
+
+        .coreValue {
+          padding: 0;
+          font-size: 20px;
+        }
+      }
+
+      .ourValuesGrid {
+        padding: 0 32px;
+        grid-template-columns: repeat(2, 1fr);
+        grid-template-rows: repeat(3, auto);
+      }
+
+      .questionsBox {
+        padding: 0 32px;
+        height: 130px;
+        margin-top: 64px;
+
+        .questionsBoxSection {
+          padding: 32px;
+
+          h5 {
+            font-size: 20px;
+            line-height: 30px;
+          }
+
+          p {
+            font-size: 18px;
+            line-height: 28px;
+          }
+        }
+      }
+    }
+
+    .aboutSection2 {
+      padding: 96px 0;
+      width: 100%;
+      height: auto;
+
+      .ourJourneySection {
+        padding: 0 32px;
+        gap: 64px;
+        width: auto;
+        height: auto;
+        display: flex;
+        align-items: center;
+
+        .ourJourneyDesc {
+          margin: 0;
+          padding: 47px 0;
+          height: auto;
+          width: auto;
+          width: calc(50vw - 32px - 64px);
+
+          .ourJourneyParas {
+            height: auto;
+            width: auto;
+          }
+        }
+
+        .ourJourneyImg {
+          width: calc(50vw - 32px);
+          overflow: hidden;
+        }
+      }
+    }
+
+    .aboutSection3 {
+      width: 100%;
+      padding: 96px 32px;
+
+      .indiaImg {
+        width: calc(50vw - 32px);
+        overflow: hidden;
+      }
+      
+      .letsConnect {
+        width: calc(50vw - 32px);
+        padding-left: 32px;
+        padding-right: 32px;
+        gap: 64px;
+
+        .letsConnectDesc {
+          h3 {
+            width: 100%;
+          }
+        }
+
+        .letsConnectForm {
+          font-size: 14px;
+        }
+      }
+    }
+  }
+}
+
+@media (min-width: 768px) and (max-width: 1000px) {
+  .main {
+    .aboutSection3 {
+      height: auto;
+      display: flex;
+      align-items: center;
+      padding-top: 64px;
+
+      .letsConnect {
+        gap: 48px;
+        height: auto;
+        padding-right: 0;
+        .letsConnectDesc {
+          h3 {
+            font-size: 45px;
+          }
+        }
+        .letsConnectForm {
+          .name {
+            display: flex;
+            flex-direction: column;
+            .firstName, .lastName {
+              width: auto;
+            }
+          }
+
+          .email {
+            margin-top: 102px;
+          }
+
+          .category {
+            .checkboxGroup {
+
+              label {
+                font-size: 16px;
+                line-height: 24px;
+                gap: 2%;
+                width: 180px;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
 @media only screen and (min-width: 360px) and (max-width: 480px) {
   .main {
     width: 100%;
@@ -514,9 +675,16 @@
       box-sizing: border-box;
       display: flex;
       align-content: center;
+      height: auto;
 
       .indiaImg {
         display: none;
+      }
+
+      .letsConnectMotion {
+        width: 100%;
+        max-width: 100%;
+        box-sizing: border-box;
       }
 
       .letsConnect {
@@ -525,12 +693,13 @@
         align-content: center;
         width: 85%;
         margin: 0 auto;
+        height: auto;
 
         .letsConnectDesc {
           width: 100%;
 
           h3 {
-            width: 75%;
+            width: 90%;
             font-size: 36px;
             line-height: 44px;
             margin: 0;
@@ -545,7 +714,6 @@
         }
 
         .letsConnectForm {
-          width: 100%;
           gap: 32px;
 
           label {
@@ -555,21 +723,29 @@
 
           input,
           textarea,
-          .phSection,
           .getStartedBtn {
             box-sizing: border-box;
-            width: 90%;
+            width: 100%;
           }
 
           .name {
-            width: 100%;
             flex-direction: column;
             .firstName, .lastName {
-              width: 100%;
+              width: 110%;
 
               input {
                 width: 90%;
               }
+            }
+          }
+
+          .phSection {
+            display: flex;
+            flex-direction: row;
+            width: 100%;
+
+            select {
+              width: 50px;
             }
           }
 
@@ -586,6 +762,7 @@
                 font-size: 16px;
                 line-height: 24px;
                 gap: 2%;
+                width: 180px;
               }
             }
           }
