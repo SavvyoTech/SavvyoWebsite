@@ -120,7 +120,6 @@
 
   .community {
     margin-top: 96px;
-    // margin-left: 80px;
     width: 100%;
     padding: 96px 80px 0 80px;
     display: flex;
@@ -243,7 +242,7 @@
       padding-right: 80px;
 
       .whyJoinBtnSection {
-        padding: 64px 96px;
+        padding: 4rem 6rem;
         background-color: #f9fafb;
         border-radius: 1rem;
         display: flex;
@@ -440,14 +439,15 @@
       .whyShopItemsGridImages {
         position: relative;
         width: 40%;
+        // width: 100%;
         display: flex;
         justify-content: center;
         align-items: center;
         // height: 100%;
 
         .whyShopItemsGridImagesImage {
-          width: 220px;
-          height: 220px;
+          width: auto;
+          height: auto;
           z-index: 1;
           margin: 0;
           padding: 0;
@@ -522,6 +522,148 @@
           height: auto;
           object-fit: contain;
           border-radius: 10px;
+        }
+      }
+    }
+  }
+}
+
+@media (min-width: 768px) and (max-width: 1024px) {
+  .main {
+    width: 100%;
+    padding: 0;
+    margin-top: 4rem;
+
+    .hero {
+      width: 100%;
+      margin: 0;
+      margin-top: 4rem;
+      padding: 0 1rem;
+      flex-direction: column;
+
+      .heroLeft {
+        width: 100%;
+        padding: 0;
+        margin: 0;
+        justify-content: center;
+        align-items: center;
+
+        h2 {
+          text-align: center;
+        }
+
+        p {
+          max-width: 85%;
+          text-align: center;
+        }
+      }
+      .heroRight {
+        width: 100%;
+        margin-top: 4rem;
+
+        .heroRightImg {
+          display: none;
+        }
+      }
+    }
+    .community {
+      width: 100%;
+      padding: 0 2rem;
+      margin: 6rem 0;
+
+      .communityGrid {
+        width: 100%;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 2rem;
+      }
+    }
+    .whyJoin {
+      width: 100%;
+      padding: 0 2rem;
+      margin-bottom: 4rem;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+
+      .whyJoinDiv {
+        flex-direction: column-reverse;
+        padding: 0 3rem;
+
+        .whyJoinGrid {
+          width: 100%;
+          padding: 0;
+          margin-top: 4rem;
+        }
+        .whyJoinImgDiv {
+          width: 100%;
+          padding: 3.5rem 2.5rem;
+          margin-top: 4rem;
+        }
+      }
+      .whyJoinBtns {
+        width: 100%;
+        margin: 0;
+        margin-top: 4rem;
+        padding: 0;
+        .whyJoinBtnSection {
+          padding: 4rem;
+        }
+      }
+    }
+    .marketPlace {
+      width: 100%;
+      padding: 0 2rem;
+      .marketPlaceItems {
+        width: 100%;
+        margin: 0;
+        .marketPlaceItemsDiv {
+          .marketPlaceItemsDivGrid {
+            padding: 0 2rem 0 0;
+          }
+          .marketPlaceItemsImage {
+            padding: 0 2rem 0 0;
+          }
+        }
+      }
+    }
+    .whyShop {
+      padding: 0 2rem;
+
+      .whyShopItems {
+        flex-direction: column-reverse;
+        padding: 0;
+        .whyShopItemsContainer {
+          display: flex;
+          padding: 0 2rem;
+          gap: 4rem;
+          width: 100%;
+          margin-top: 4rem;
+          .whyShopItemsGrid {
+            width: 100%;
+          }
+        }
+        .whyShopItemsGridImages {
+          width: 100%;
+          img:first-child {
+            width: auto;
+            height: auto; /* Maintain aspect ratio */
+          }
+
+          .whyShopItemsGridImagesImage {
+            left: 70%;
+          }
+        }
+      }
+    }
+    .products {
+      width: 100%;
+      padding: 0 2rem;
+      .productsItems {
+        .productsItemsLeft {
+          padding: 1rem;
+        }
+        .productsItemsRight {
+          padding: 2rem;
         }
       }
     }

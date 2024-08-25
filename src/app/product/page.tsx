@@ -87,7 +87,6 @@ const MarketplaceItems = ({
                     alt="grid item"
                     width={28}
                     height={28}
-                    // className={styles.gridItem}
                   />
                   <p>{desc1}</p>
                 </div>
@@ -97,7 +96,6 @@ const MarketplaceItems = ({
                     alt="grid item"
                     width={28}
                     height={28}
-                    // className={styles.gridItem}
                   />
                   <p>{desc2}</p>
                 </div>
@@ -129,7 +127,6 @@ const MarketplaceItems = ({
                     alt="grid item"
                     width={28}
                     height={28}
-                    // className={styles.gridItem}
                   />
                   <p>{desc1}</p>
                 </div>
@@ -139,7 +136,6 @@ const MarketplaceItems = ({
                     alt="grid item"
                     width={28}
                     height={28}
-                    // className={styles.gridItem}
                   />
                   <p>{desc2}</p>
                 </div>
@@ -158,7 +154,6 @@ const MarketplaceItems = ({
               width={589}
               height={426}
               layout="intrinsic"
-              // className={styles.marketPlaceItemsImage}
             />
           </motion.div>
         </>
@@ -173,6 +168,10 @@ export default function ProductPage() {
   const isSmallScreen = useMediaQuery(
     "(min-width: 320px) and (max-width: 480px)"
   );
+  const isTabScreen = useMediaQuery(
+    "(min-width: 768px) and (max-width: 1024px)"
+  );
+
   const scrollToCommunity = () => {
     if (communityRef.current) {
       communityRef.current.scrollIntoView({ behavior: "smooth" });
@@ -275,26 +274,26 @@ export default function ProductPage() {
               alt="hero image"
               width={1024}
               height={598}
-              // className={styles.heroRightImg}
             />
           </motion.div>
         </div>
 
-        {isSmallScreen && (
-          <motion.div
-            initial={{ opacity: 0, x: "-100%" }}
-            whileInView={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.5, ease: "easeInOut" }}
-          >
-            <Image
-              src="/images/product/mac-pro-mob.svg"
-              alt="hero image"
-              width={343}
-              height={200}
-              layout="responsive"
-            />
-          </motion.div>
-        )}
+        {isSmallScreen ||
+          (isTabScreen && (
+            <motion.div
+              initial={{ opacity: 0, x: "-100%" }}
+              whileInView={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.5, ease: "easeInOut" }}
+            >
+              <Image
+                src="/images/product/mac-pro-mob.svg"
+                alt="hero image"
+                width={343}
+                height={200}
+                layout="responsive"
+              />
+            </motion.div>
+          ))}
       </section>
 
       <motion.section
@@ -400,7 +399,7 @@ export default function ProductPage() {
             <Image
               // src="/images/product/mac-pro-mock.svg"
               src={
-                isSmallScreen
+                isSmallScreen || isTabScreen
                   ? "/images/product/mac-pro-mock-mob.svg"
                   : "/images/product/mac-pro-mock.svg"
               }
@@ -537,38 +536,40 @@ export default function ProductPage() {
           </p>
         </div>
         <div className={styles.whyShopItems}>
-          <div className={styles.whyShopItemsGrid}>
-            <GridItemProduct
-              title="Quality Assurance"
-              description="Every product on Savvyo is thoroughly vetted to ensure it meets our high standards."
-              icon="/icons/chat-icon.svg"
-            />
-            <GridItemProduct
-              title="Community Driven"
-              description="Our platform is built on the feedback and preferences of our community, ensuring we offer what you truly want."
-              icon="/icons/lightning-icon.svg"
-            />
-          </div>
-          {isSmallScreen ? (
+          {isSmallScreen || isTabScreen ? (
             <>
-              <div className={styles.whyShopItemsGrid}>
-                <GridItemProduct
-                  title="Competitive Pricing"
-                  description="Enjoy great deals and value for money with our team buying and live sale features."
-                  icon="/icons/user-gen-icon.svg"
-                />
-                <GridItemProduct
-                  title="Seamless Experience"
-                  description="Our user-friendly interface makes shopping easy and enjoyable."
-                  icon="/icons/emoji-icon.svg"
-                />
+              <div className={styles.whyShopItemsContainer}>
+                <div className={styles.whyShopItemsGrid}>
+                  <GridItemProduct
+                    title="Quality Assurance"
+                    description="Every product on Savvyo is thoroughly vetted to ensure it meets our high standards."
+                    icon="/icons/chat-icon.svg"
+                  />
+                  <GridItemProduct
+                    title="Community Driven"
+                    description="Our platform is built on the feedback and preferences of our community, ensuring we offer what you truly want."
+                    icon="/icons/lightning-icon.svg"
+                  />
+                </div>
+                <div className={styles.whyShopItemsGrid}>
+                  <GridItemProduct
+                    title="Competitive Pricing"
+                    description="Enjoy great deals and value for money with our team buying and live sale features."
+                    icon="/icons/user-gen-icon.svg"
+                  />
+                  <GridItemProduct
+                    title="Seamless Experience"
+                    description="Our user-friendly interface makes shopping easy and enjoyable."
+                    icon="/icons/emoji-icon.svg"
+                  />
+                </div>
               </div>
               <div className={styles.whyShopItemsGridImages}>
                 <Image
-                  src="/images/card.svg"
+                  src={`/images/product/card${isTabScreen ? "-tab" : ""}.svg`}
                   alt="community image"
                   layout="responsive"
-                  width={480}
+                  width={500}
                   height={384}
                 />
                 <Image
@@ -583,18 +584,31 @@ export default function ProductPage() {
             </>
           ) : (
             <>
+              <div className={styles.whyShopItemsGrid}>
+                <GridItemProduct
+                  title="Quality Assurance"
+                  description="Every product on Savvyo is thoroughly vetted to ensure it meets our high standards."
+                  icon="/icons/chat-icon.svg"
+                />
+                <GridItemProduct
+                  title="Community Driven"
+                  description="Our platform is built on the feedback and preferences of our community, ensuring we offer what you truly want."
+                  icon="/icons/lightning-icon.svg"
+                />
+              </div>
               <div className={styles.whyShopItemsGridImages}>
                 <Image
-                  src="/images/card.svg"
+                  src="/images/product/card.svg"
                   alt="community image"
                   width={480}
                   height={384}
+                  layout="responsive"
                 />
                 <Image
                   src="/images/user-count-card.svg"
                   alt="community image"
-                  width={200}
-                  height={200}
+                  width={220}
+                  height={220}
                   className={styles.whyShopItemsGridImagesImage}
                 />
               </div>
@@ -613,7 +627,7 @@ export default function ProductPage() {
             </>
           )}
         </div>
-        <hr />
+        {!isTabScreen && <hr />}
       </motion.section>
 
       <section id="section6" className={styles.products}>
