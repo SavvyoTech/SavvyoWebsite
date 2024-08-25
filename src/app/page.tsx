@@ -300,15 +300,15 @@ export default function HomePage() {
                 alt="hero footer"
                 width={314}
                 height={264}
-                className={styles.heroFooterImg}
-                layout="intrinsic"
+                className={styles.heroFooterImg1}
+                // layout="responsive"
               />
               <Image
                 src="/images/home/iphone-main.svg"
                 alt="hero footer"
                 width={424}
-                height={479}
-                className={styles.heroFooterImg}
+                height={410}
+                className={styles.heroFooterImg2}
               />
 
               {/* TODO: Make this a proper Div component */}
@@ -317,7 +317,7 @@ export default function HomePage() {
                 alt="hero footer"
                 width={316}
                 height={305}
-                className={styles.heroFooterImg}
+                className={styles.heroFooterImg3}
               />
 
               {/* All the below images are in z-index:1 (absolute positions) */}

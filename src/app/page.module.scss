@@ -3,7 +3,7 @@
   display: flex;
   flex-direction: column;
   width: 100%;
-  margin-top: 96px;
+  margin-top: 4.2rem;
   overflow-x: hidden;
   overflow-y: hidden;
   scrollbar-width: 0px;
@@ -13,8 +13,12 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    margin-top: 96px;
+    padding-top: 96px;
     width: 100%;
+    background-image: url("/images/home/grid-pattern.svg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
 
     .heroHeader {
       display: flex;
@@ -51,9 +55,6 @@
           width: 11ch; /* Adjust based on the longest word */
           text-align: left; /* Aligns text to the left within the fixed-width container */
           display: flex;
-          // justify-content: center;
-
-          // margin-left: 48%;
         }
 
         .heroHeaderTitleScribble {
@@ -61,30 +62,6 @@
           top: 4.5rem; /* Adjust this value to position the scribble below the word */
           left: 35%;
         }
-
-        // div {
-        //   display: flex;
-        //   position: relative;
-
-        //   h2 {
-        //     color: constants.$primaryColor;
-        //     position: absolute;
-        //     bottom: -15px;
-        //     left: 200px;
-        //   }
-        //   div {
-        //     margin-left: 1rem;
-        //     font-size: constants.$h2;
-        //     font-weight: 600;
-        //     color: constants.$secondaryColor;
-        //   }
-        //   .heroHeaderTitleScribble {
-        //     z-index: 1;
-        //     position: absolute;
-        //     left: 50%;
-        //     bottom: -15px;
-        //   }
-        // }
       }
 
       p {
@@ -181,40 +158,58 @@
       flex-direction: column;
       align-items: center;
       justify-content: center;
-      margin-top: 188px;
+      margin-top: 50%;
       width: 100%;
 
       .heroFooterDiv {
         width: 100%;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        gap: 5rem;
         position: relative;
 
-        .heroFooterImgAbove1 {
+        .heroFooterImg1 {
+          position: absolute;
+          bottom: 4rem;
+          left: 2rem;
+          width: 314px;
+          height: 265px;
+        }
+
+        .heroFooterImg2 {
+          position: absolute;
           z-index: 1;
+          bottom: 0;
+          left: 36%;
+          width: 410px;
+          height: 471px;
+        }
+
+        .heroFooterImg3 {
+          position: absolute;
+          bottom: 3rem;
+          right: 6rem;
+          width: 316px;
+          height: 305px;
+        }
+
+        .heroFooterImgAbove1 {
           position: absolute;
           left: 5%;
-          top: -85px;
+          bottom: 25rem;
         }
         .heroFooterImgAbove2 {
-          z-index: 1;
           position: absolute;
           left: 50%;
-          top: -100px;
+          bottom: 31rem;
         }
         .heroFooterImgAbove3 {
-          z-index: 1;
           position: absolute;
           left: 55%;
-          top: 15px;
+          bottom: 25rem;
         }
         .heroFooterImgAbove4 {
-          z-index: 1;
           position: absolute;
-          right: 45px;
-          top: -150px;
+          right: 5%;
+          bottom: 30rem;
+          z-index: -1;
         }
       }
     }
@@ -447,44 +442,37 @@
       }
 
       .communityImage1 {
-        z-index: 1;
         position: absolute;
         left: 164px;
         top: -180px;
       }
       .communityImage2 {
-        z-index: 1;
         position: absolute;
         right: 358px;
         top: -246px;
       }
       .communityMessage2 {
-        z-index: 1;
         position: absolute;
         right: 147px;
         top: -92px;
       }
       .communityImage3 {
-        z-index: 1;
         position: absolute;
         left: -20px;
         top: 117px;
       }
       .communityImage4 {
-        z-index: 1;
         position: absolute;
         left: 176px;
         // bottom: -235px;
         bottom: -139px;
       }
       .communityImage5 {
-        z-index: 1;
         position: absolute;
         right: 191px;
         bottom: -78px;
       }
       .communityImage6 {
-        z-index: 1;
         position: absolute;
         bottom: -219px;
         right: 246px;
@@ -675,6 +663,43 @@
       .heroHeader {
         width: 80%;
       }
+      .heroFooter {
+        .heroFooterDiv {
+          margin-top: 10rem;
+          .heroFooterImg1 {
+            width: 200px;
+            // height: 170px;
+          }
+          .heroFooterImg2 {
+            width: 270px;
+            left: 35%;
+          }
+          .heroFooterImg3 {
+            width: 200px;
+            left: 75%;
+          }
+          .heroFooterImgAbove1 {
+            width: 250px;
+            bottom: 18rem;
+            left: 2%;
+          }
+          .heroFooterImgAbove2 {
+            width: 250px;
+            bottom: 23rem;
+            left: 45%;
+          }
+          .heroFooterImgAbove3 {
+            width: 250px;
+            bottom: 20rem;
+            left: 58%;
+          }
+          .heroFooterImgAbove4 {
+            width: 180px;
+            bottom: 22rem;
+            left: 80%;
+          }
+        }
+      }
     }
     .whatWeOffer {
       width: 100%;
@@ -746,6 +771,7 @@
     .community {
       width: 100%;
       padding: 0 1rem;
+      margin: 15rem 0;
       .whyJoinBtns {
         width: 100%;
         .whyJoinBtnSection {
@@ -756,6 +782,49 @@
           h2 {
             font-size: constants.$h3;
           }
+        }
+
+        .communityImage1 {
+          position: absolute;
+          left: 2%;
+          top: -8rem;
+          width: 300px;
+        }
+        .communityImage2 {
+          position: absolute;
+          left: 55%;
+          top: -10rem;
+          width: 150px;
+        }
+        .communityMessage2 {
+          position: absolute;
+          right: 2%;
+          top: -5rem;
+          width: 250px;
+        }
+        .communityImage3 {
+          position: absolute;
+          width: 250px;
+          top: 12rem;
+          left: -8rem;
+        }
+        .communityImage4 {
+          position: absolute;
+          width: 300px;
+          left: 2%;
+          bottom: -10rem;
+        }
+        .communityImage5 {
+          position: absolute;
+          width: 300px;
+          top: 15rem;
+          left: 60%;
+        }
+        .communityImage6 {
+          position: absolute;
+          width: 300px;
+          bottom: -12rem;
+          left: 50%;
         }
       }
     }
@@ -863,9 +932,9 @@
           width: 100%;
           display: flex;
           flex-direction: column;
-
+          justify-content: center;
+          align-items: center;
           margin-top: 0;
-          gap: 0;
 
           hr {
             width: 100%;
