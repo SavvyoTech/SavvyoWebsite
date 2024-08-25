@@ -468,7 +468,7 @@
         width: calc(50vw - 32px);
         overflow: hidden;
       }
-      
+
       .letsConnect {
         width: calc(50vw - 32px);
         padding-left: 32px;
@@ -501,16 +501,20 @@
         gap: 48px;
         height: auto;
         padding-right: 0;
+
         .letsConnectDesc {
           h3 {
             font-size: 45px;
           }
         }
+
         .letsConnectForm {
           .name {
             display: flex;
             flex-direction: column;
-            .firstName, .lastName {
+
+            .firstName,
+            .lastName {
               width: auto;
             }
           }
@@ -628,26 +632,26 @@
           flex-direction: column;
           padding: 0;
           margin: 0 auto;
-          
+
           h3 {
             font-size: 30px;
             line-height: 38px;
           }
-          
+
           .ourJourneyParas {
             box-sizing: border-box;
             width: 100%;
             height: auto;
-            
+
             p {
               font-size: 16px;
               line-height: 24px;
             }
           }
-          
+
           .ourJourneyBtns {
             flex-direction: column;
-            
+
             .ourJourneyLink1,
             .ourJourneyLink2 {
               box-sizing: border-box;
@@ -730,7 +734,9 @@
 
           .name {
             flex-direction: column;
-            .firstName, .lastName {
+
+            .firstName,
+            .lastName {
               width: 110%;
 
               input {

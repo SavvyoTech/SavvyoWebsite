@@ -19,6 +19,7 @@ import { TransactionForm } from "../components/seller/transaction";
 import { StoreForm } from "../components/seller/store";
 import Link from "next/link";
 import Image from "next/image";
+import useMediaQuery from "@mui/material/useMediaQuery";
 
 const steps = [
   {
@@ -78,9 +79,9 @@ const getActiveForm = (
 
 export default function SellerForm() {
   const sellerRef = useRef<HTMLDivElement>(null);
-  // const isSmallScreen = useMediaQuery(
-  //   "(min-width: 320px) and (max-width: 480px)"
-  // );
+  const isSmallScreen = useMediaQuery(
+    "(min-width: 320px) and (max-width: 480px)"
+  );
   const scrollToSellerForm = () => {
     if (sellerRef.current) {
       sellerRef.current.scrollIntoView({ behavior: "smooth" });
@@ -432,35 +433,37 @@ export default function SellerForm() {
 
       <div id="becomeASeller" ref={sellerRef} className={styles.headBox}>
         <Typography typography={"h6"}>Start selling with us</Typography>
-        <Typography typography={"h3"}>
+        <Typography typography={"h3"} className={styles.sellerFormHeading}>
           Join Our Vibrant Seller Community
         </Typography>
-        <Typography typography={"body1"}>
+        <Typography typography={"body1"} className={styles.sellerFormDesc}>
           We&apos;re excited to welcome you to our platform where your business
-          can thrive. Please provide your details below to get started on your
-          journey with us.
+          can thrive. {!isSmallScreen && "Please provide your details below to get started on your journey with us."}
         </Typography>
       </div>
       <div className={styles.formBox}>
-        <div className={styles.formProgress}>
-          <Stepper activeStep={activeStep} orientation="vertical">
-            {steps.map((step, index) => (
-              <Step key={step.label}>
-                <StepLabel icon={step.icon}>
-                  <Typography typography={"h6"} className={styles.stepLabel}>
-                    {step.label}
-                  </Typography>
-                </StepLabel>
-                <StepContent>
-                  <Typography className={styles.stepDesc}>
-                    {step.description}
-                  </Typography>
-                </StepContent>
-              </Step>
-            ))}
-          </Stepper>
-        </div>
-        <hr />
+        {!isSmallScreen &&
+          <>
+            <div className={styles.formProgress}>
+              <Stepper activeStep={activeStep} orientation="vertical">
+                {steps.map((step, index) => (
+                  <Step key={step.label}>
+                    <StepLabel icon={step.icon}>
+                      <Typography typography={"h6"} className={styles.stepLabel}>
+                        {step.label}
+                      </Typography>
+                    </StepLabel>
+                    <StepContent>
+                      <Typography className={styles.stepDesc}>
+                        {step.description}
+                      </Typography>
+                    </StepContent>
+                  </Step>
+                ))}
+              </Stepper>
+            </div>
+            <hr />
+          </>}
         <div className={styles.activeForm}>
           {getActiveForm(activeStep, handleNext, handleFormData)}
         </div>
