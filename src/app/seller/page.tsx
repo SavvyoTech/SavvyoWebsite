@@ -18,6 +18,7 @@ import AutoAwesomeIcon from "@mui/icons-material/AutoAwesome";
 import { TransactionForm } from "../components/seller/transaction";
 import { StoreForm } from "../components/seller/store";
 import Link from "next/link";
+import Image from "next/image";
 
 const steps = [
   {
@@ -112,7 +113,7 @@ export default function SellerForm() {
           <div className={styles.featuresContainerLeft}>
             <div className={styles.featureTextContainer}>
               <div className={styles.featureSectionTitle}>
-                Reach Millions of Customers Nationwide with SAVVYO's Zero
+                Reach Millions of Customers Nationwide with SAVVYO&#39;s Zero
                 Commission Model
               </div>
               <p className={styles.featureSectionDescription}>
@@ -140,25 +141,45 @@ export default function SellerForm() {
             <ul className={styles.featuureSectionHeadingRightHeading}>
               <li className={styles.featureSectionRightLoveSavvyoList}>
                 <span className={styles.featureSectionRightCheckbox}>
-                  <img src="/icons/Check icon.svg" alt="" />
+                  <Image
+                    src="/icons/Check icon.svg"
+                    alt=""
+                    width={32}
+                    height={32}
+                  />
                 </span>
                 Lowest Shipping Costs
               </li>
               <li className={styles.featureSectionRightLoveSavvyoList}>
                 <span className={styles.featureSectionRightCheckbox}>
-                  <img src="/icons/Check icon.svg" alt="" />
+                  <Image
+                    src="/icons/Check icon.svg"
+                    alt=""
+                    width={32}
+                    height={32}
+                  />
                 </span>
                 Lowest Shipping Costs
               </li>
               <li className={styles.featureSectionRightLoveSavvyoList}>
                 <span className={styles.featureSectionRightCheckbox}>
-                  <img src="/icons/Check icon.svg" alt="" />
+                  <Image
+                    src="/icons/Check icon.svg"
+                    alt=""
+                    width={32}
+                    height={32}
+                  />
                 </span>
                 Lowest Shipping Costs
               </li>
               <li className={styles.featureSectionRightLoveSavvyoList}>
                 <span className={styles.featureSectionRightCheckbox}>
-                  <img src="/icons/Check icon.svg" alt="" />
+                  <Image
+                    src="/icons/Check icon.svg"
+                    alt=""
+                    width={32}
+                    height={32}
+                  />
                 </span>
                 Lowest Shipping Costs
               </li>
@@ -168,7 +189,13 @@ export default function SellerForm() {
 
         <div className={styles.contentMainImage}>
           {/* C:\Users\asus\Downloads\SavvyoWebsite-main (1)\SavvyoWebsite-main\public\images\Content.svg */}
-          <img src="/images/Content.svg" alt="Contentimage" />
+          <Image
+            src="/images/Content.svg"
+            alt="Contentimage"
+            width={1200}
+            height={450}
+            layout="responsive"
+          />
         </div>
 
         {/* grow section */}
@@ -186,7 +213,12 @@ export default function SellerForm() {
           {/* <div className={styles.growBusinessBoxes}> */}
           <div className={styles.growBusinessBox}>
             <span className={styles.growBusinessBoxIcon}>
-              <img src="/icons/lowcosticon.svg" alt="" />
+              <Image
+                src="/icons/lowcosticon.svg"
+                alt=""
+                width={48}
+                height={48}
+              />
             </span>
             <div className={styles.growBoxTitle}>Lowest Shipping Costs</div>
             <p className={styles.growBoxDescription}>
@@ -197,9 +229,11 @@ export default function SellerForm() {
 
           <div className={styles.growBusinessBox}>
             <span className={styles.growBusinessBoxIcon}>
-              <img
+              <Image
                 src="/icons/nexdaydispatchicon.svg"
                 alt="nextdaydispatchicon"
+                width={48}
+                height={48}
               />
             </span>
             <div className={styles.growBoxTitle}>Next Day Dispatch</div>
@@ -211,7 +245,12 @@ export default function SellerForm() {
 
           <div className={styles.growBusinessBox}>
             <span className={styles.growBusinessBoxIcon}>
-              <img src="/icons/advertisingtoolicon.svg" alt="" />
+              <Image
+                src="/icons/advertisingtoolicon.svg"
+                alt=""
+                width={48}
+                height={48}
+              />
             </span>
             <div className={styles.growBoxTitle}>Advertising Tools</div>
             <p className={styles.growBoxDescription}>
@@ -222,7 +261,12 @@ export default function SellerForm() {
 
           <div className={styles.growBusinessBox}>
             <span className={styles.growBusinessBoxIcon}>
-              <img src="/icons/buissnessinsighticon.svg" alt="" />
+              <Image
+                src="/icons/buissnessinsighticon.svg"
+                alt=""
+                width={48}
+                height={48}
+              />
             </span>
             <div className={styles.growBoxTitle}>Business Insights</div>
             <p className={styles.growBoxDescription}>
@@ -274,7 +318,12 @@ export default function SellerForm() {
           <div className={styles.stepcontainersinglebox}>
             <div className={styles.step}>
               <div className={styles.icon}>
-                <img src="/icons/personicon.svg" alt="personn icon" />
+                <Image
+                  src="/icons/personicon.svg"
+                  alt="personn icon"
+                  width={48}
+                  height={48}
+                />
               </div>
               <div className={styles.title}>Create Account</div>
               <p className={styles.description}>
@@ -288,7 +337,12 @@ export default function SellerForm() {
           <div className={styles.stepcontainersinglebox}>
             <div className={styles.step}>
               <div className={styles.icon}>
-                <img src="/icons/listitemicon.svg" alt="list item" />
+                <Image
+                  src="/icons/listitemicon.svg"
+                  alt="list item"
+                  width={48}
+                  height={48}
+                />
               </div>
               <div className={styles.title}>List Products</div>
               <p className={styles.description}>
@@ -301,7 +355,12 @@ export default function SellerForm() {
           <div className={styles.stepcontainersinglebox}>
             <div className={styles.step}>
               <div className={styles.icon}>
-                <img src="/icons/getordericon.svg" alt="person icon" />
+                <Image
+                  src="/icons/getordericon.svg"
+                  alt="person icon"
+                  width={48}
+                  height={48}
+                />
               </div>
               <div className={styles.title}>Get Orders</div>
               <p className={styles.description}>
@@ -314,7 +373,12 @@ export default function SellerForm() {
           <div className={styles.stepcontainersinglebox}>
             <div className={styles.step}>
               <div className={styles.icon}>
-                <img src="/icons/lowcosticon.svg" alt="low cost icon" />
+                <Image
+                  src="/icons/lowcosticon.svg"
+                  alt="low cost icon"
+                  width={48}
+                  height={48}
+                />
               </div>
               <div className={styles.title}>Lowest Cost Shipping</div>
               <p className={styles.description}>
@@ -327,9 +391,11 @@ export default function SellerForm() {
           <div className={styles.stepcontainersinglebox}>
             <div className={styles.step}>
               <div className={styles.icon}>
-                <img
+                <Image
                   src="/icons/receivepaymenticon.svg"
                   alt="receive payment icon"
+                  width={48}
+                  height={48}
                 />
               </div>
               <div className={styles.title}>Receive Payments</div>
