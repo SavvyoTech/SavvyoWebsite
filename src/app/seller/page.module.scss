@@ -156,7 +156,7 @@
   .growBusiness {
     display: flex;
     flex-direction: column;
-    align-items: flex-start;
+    align-items: flex-flex-start;
 
     gap: 40px;
     margin-bottom: 40px;
@@ -263,7 +263,7 @@
     }
   }
 
-  .getStartedButton {
+  .getflex-startedButton {
     background-color: #000;
     color: #fff;
     border: none;
@@ -313,7 +313,7 @@
   .stepsContainer {
     display: flex;
     justify-content: space-between;
-    align-items: flex-start;
+    align-items: flex-flex-start;
     padding: 20px;
     border-radius: 8px;
   }
@@ -431,16 +431,16 @@
   .main {
     .headBox {
       display: flex;
-      align-items: start;
+      align-items: flex-start;
       padding: 0 16px;
 
       .sellerFormHeading {
-        text-align: start;
+        text-align: flex-start;
         margin-bottom: 32px;
       }
 
       .sellerFormDesc {
-        text-align: start;
+        text-align: flex-start;
         font-size: 18px;
         line-height: 28px;
       }
