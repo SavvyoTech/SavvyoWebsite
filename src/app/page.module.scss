@@ -142,6 +142,7 @@
           width: 252px;
         }
         .btnsBtn2 {
+          background-color: white;
           position: absolute;
           bottom: -1px;
           right: -28px;
@@ -149,6 +150,11 @@
           width: 283px;
           font-weight: 600;
           border: 1px solid constants.$ternaryColor;
+
+          &:hover {
+            background-color: #f9fafb;
+            // border: 1px solid constants.$primaryColor;
+          }
         }
       }
     }
@@ -164,6 +170,13 @@
       .heroFooterDiv {
         width: 100%;
         position: relative;
+        hr {
+          width: 100%;
+          background-color: constants.$ternaryColor;
+          opacity: 0.3;
+
+          padding: 0 80px;
+        }
 
         .heroFooterImg1 {
           position: absolute;
@@ -591,13 +604,17 @@
     background-color: #f9fafb;
 
     .goToAppsDiv {
-      padding: 48px 80px 0 80px;
+      padding: 3rem 5rem 0 5rem;
       display: flex;
+      justify-content: space-between;
+      // align-items: center;
+      // justify-content: center;
 
       .goToAppsLeft {
         max-width: 576px;
         margin-right: 195px;
         padding-bottom: 2rem;
+        padding-left: 2rem;
 
         h3 {
           color: constants.$primaryColor;
@@ -1121,6 +1138,7 @@
       width: 100%;
       margin-top: 2rem;
       padding: 0 1rem;
+      background-image: none;
 
       .heroHeader {
         width: 100%;

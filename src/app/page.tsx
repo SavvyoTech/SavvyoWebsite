@@ -315,6 +315,8 @@ export default function HomePage() {
                 className={styles.heroFooterImg2}
               />
 
+              <hr />
+
               {/* TODO: Make this a proper Div component */}
               <Image
                 src="/images/home/modal-right.svg"
