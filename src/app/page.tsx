@@ -152,11 +152,15 @@ const WhatWeOfferItems = ({
 export default function HomePage() {
   const [currentWordIndex, setCurrentWordIndex] = useState(0);
   const isSmallScreen = useMediaQuery(
-    "(min-width: 320px) and (max-width: 480px)"
+    "(min-width: 320px) and (max-width: 481px)"
   );
   const isTabScreen = useMediaQuery(
     "(min-width: 768px) and (max-width: 1024px)"
   );
+  const preTabScreen = useMediaQuery(
+    "(min-width: 481px) and (max-width: 768px)"
+  );
+
   const controls = useAnimation();
 
   const words = ["INNOVATION", "CHANGE", "REVOLUTION", "SAVVYO"];
@@ -276,7 +280,7 @@ export default function HomePage() {
         </div>
 
         <div className={styles.heroFooter}>
-          {isSmallScreen ? (
+          {isSmallScreen || preTabScreen ? (
             <motion.div
               initial={{ opacity: 0, y: "30%" }}
               whileInView={{ opacity: 1, y: 0 }}
@@ -379,32 +383,44 @@ export default function HomePage() {
           <WhatWeOfferItems
             title="Built on Community"
             desc1="Savvyo is where people share and seek authentic opinions on all aspects of life. Unlike traditional social platforms, we focus on real experiences and insights. Connect, share, and learn in a community that values authenticity."
-            img={`/images/home/${isTabScreen ? "tab" : "home"}-img1.svg`}
+            img={`/images/home/${
+              isTabScreen || preTabScreen ? "tab" : "home"
+            }-img1.svg`}
             reverse={false}
           />
 
           <WhatWeOfferItems
             title="E-commerce for the Smartphone Era"
             desc1="Savvyo offers a wide range of products designed to meet your needs and enhance your lifestyle. Explore our diverse categories and discover why Savvyo is your go-to platform for quality and value."
-            img={`/images/home/${isTabScreen ? "tab" : "home"}-img2.svg`}
-            reverse={isSmallScreen || isTabScreen ? false : true}
+            img={`/images/home/${
+              isTabScreen || preTabScreen ? "tab" : "home"
+            }-img2.svg`}
+            reverse={
+              isSmallScreen || isTabScreen || preTabScreen ? false : true
+            }
           />
 
           <WhatWeOfferItems
             title=" Team Buying for Better Deals"
             desc1="Invite friends or form teams to get better prices. Savvyo enhances the social shopping experience, creating a sense of belonging. More users lead to better experiences, growing our community and services."
-            img={`/images/home/${isTabScreen ? "tab" : "home"}-img3.svg`}
+            img={`/images/home/${
+              isTabScreen || preTabScreen ? "tab" : "home"
+            }-img3.svg`}
             reverse={false}
           />
 
           <WhatWeOfferItems
             title="Live Sale: A Win-Win"
             desc1="Discover and buy products in real time. Users enjoy an interactive shopping experience, while sellers and new brands gain instant visibility and direct customer connections."
-            img={`/images/home/${isTabScreen ? "tab" : "home"}-img4.svg`}
-            reverse={isSmallScreen || isTabScreen ? false : true}
+            img={`/images/home/${
+              isTabScreen || preTabScreen ? "tab" : "home"
+            }-img4.svg`}
+            reverse={
+              isSmallScreen || isTabScreen || preTabScreen ? false : true
+            }
           />
         </div>
-        {isSmallScreen && <hr />}
+        {isSmallScreen || (preTabScreen && <hr />)}
       </motion.section>
 
       <motion.section
