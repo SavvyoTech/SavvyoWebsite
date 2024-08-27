@@ -673,6 +673,197 @@
   }
 }
 
+@media (min-width: 481px) and (max-width: 768px) {
+  .main {
+    width: 100%;
+    padding: 0;
+    margin-top: 4rem;
+
+    .hero {
+      width: 100%;
+      margin: 0;
+      margin-top: 4rem;
+      padding: 0 1rem;
+      flex-direction: column;
+
+      .heroLeft {
+        width: 100%;
+        padding: 0;
+        margin: 0;
+        justify-content: center;
+        align-items: center;
+
+        h2 {
+          text-align: center;
+        }
+
+        p {
+          max-width: 85%;
+          text-align: center;
+        }
+      }
+      .heroRight {
+        width: 100%;
+        margin-top: 4rem;
+
+        .heroRightImg {
+          display: none;
+        }
+      }
+    }
+    .community {
+      width: 100%;
+      padding: 0 2rem;
+      padding-top: 6rem;
+      margin: 6rem 0;
+
+      .communityGrid {
+        width: 100%;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 2rem;
+      }
+    }
+    .whyJoin {
+      width: 100%;
+      padding: 0 2rem;
+      margin-bottom: 4rem;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+
+      .whyJoinDiv {
+        flex-direction: column-reverse;
+        padding: 0 1.5rem;
+
+        .whyJoinGrid {
+          width: 100%;
+          padding: 0;
+          margin-top: 4rem;
+        }
+        .whyJoinImgDiv {
+          width: 100%;
+          padding: 3.5rem 2.5rem;
+          margin-top: 4rem;
+        }
+      }
+      .whyJoinBtns {
+        width: 100%;
+        margin: 0;
+        margin-top: 4rem;
+        padding: 0;
+        .whyJoinBtnSection {
+          padding: 2rem;
+        }
+      }
+    }
+    // .marketPlace {
+    //   width: 100%;
+    //   padding: 0 2rem;
+    //   padding-top: 6rem;
+    //   .marketPlaceItems {
+    //     width: 100%;
+    //     margin: 0;
+    //     margin-top: 6rem;
+    //     .marketPlaceItemsDiv {
+    //       .marketPlaceItemsDivGrid {
+    //         padding: 0 2rem 0 0;
+    //       }
+    //       .marketPlaceItemsImage {
+    //         padding: 0 2rem 0 0;
+    //       }
+    //     }
+    //   }
+    // }
+    .marketPlace {
+      width: 100%;
+      padding: 4rem 1rem 0 1rem;
+      margin: 4rem 0;
+
+      .marketPlaceHeader {
+        width: 100%;
+
+        div {
+          width: 100%;
+
+          h4 {
+            font-size: constants.$h5;
+          }
+          p {
+            font-size: constants.$bodyLarge;
+          }
+        }
+      }
+      .marketPlaceItems {
+        width: 100%;
+        margin: 3rem 0;
+        gap: 3rem;
+
+        .marketPlaceItemsDiv {
+          width: 100%;
+          display: flex;
+          flex-direction: column;
+          gap: 2.5rem;
+
+          .marketPlaceItemsDivGrid {
+            width: 100%;
+            padding: 0;
+          }
+
+          .marketPlaceItemsImage {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 100%;
+            padding: 0;
+          }
+        }
+      }
+    }
+
+    .whyShop {
+      padding: 0 2rem;
+
+      .whyShopItems {
+        flex-direction: column-reverse;
+        padding: 0;
+        .whyShopItemsContainer {
+          display: flex;
+          padding: 0 2rem;
+          gap: 4rem;
+          width: 100%;
+          margin-top: 4rem;
+          .whyShopItemsGrid {
+            width: 100%;
+          }
+        }
+        .whyShopItemsGridImages {
+          width: 100%;
+          img:first-child {
+            width: auto;
+            height: auto; /* Maintain aspect ratio */
+          }
+
+          .whyShopItemsGridImagesImage {
+            left: 70%;
+          }
+        }
+      }
+    }
+    .products {
+      width: 100%;
+      padding: 0 2rem;
+      .productsItems {
+        .productsItemsLeft {
+          padding: 1rem;
+        }
+        .productsItemsRight {
+          padding: 2rem;
+        }
+      }
+    }
+  }
+}
+
 @media (min-width: 320px) and (max-width: 480px) {
   .main {
     width: 100%;

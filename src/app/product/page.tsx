@@ -172,6 +172,10 @@ export default function ProductPage() {
     "(min-width: 768px) and (max-width: 1024px)"
   );
 
+  const preTabScreen = useMediaQuery(
+    "(min-width: 481px) and (max-width: 768px)"
+  );
+
   const scrollToCommunity = () => {
     if (communityRef.current) {
       communityRef.current.scrollIntoView({ behavior: "smooth" });
@@ -278,22 +282,21 @@ export default function ProductPage() {
           </motion.div>
         </div>
 
-        {isSmallScreen ||
-          (isTabScreen && (
-            <motion.div
-              initial={{ opacity: 0, x: "-100%" }}
-              whileInView={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.5, ease: "easeInOut" }}
-            >
-              <Image
-                src="/images/product/mac-pro-mob.svg"
-                alt="hero image"
-                width={343}
-                height={200}
-                layout="responsive"
-              />
-            </motion.div>
-          ))}
+        {(isSmallScreen || isTabScreen || preTabScreen) && (
+          <motion.div
+            initial={{ opacity: 0, x: "-100%" }}
+            whileInView={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.5, ease: "easeInOut" }}
+          >
+            <Image
+              src="/images/product/mac-pro-mob.svg"
+              alt="hero image"
+              width={343}
+              height={200}
+              layout="responsive"
+            />
+          </motion.div>
+        )}
       </section>
 
       <motion.section
@@ -488,7 +491,7 @@ export default function ProductPage() {
             desc2="Snacks and Beverages: Find your favorite snacks, teas, and coffees for a perfect break or a quick refreshment."
             icon="/icons/lightning-icon.svg"
             img="/images/product/market-img2.svg"
-            reverse={isSmallScreen ? false : true}
+            reverse={isSmallScreen || preTabScreen ? false : true}
           />
 
           <MarketplaceItems
@@ -506,7 +509,7 @@ export default function ProductPage() {
             desc2="Accessories: Enhance your tech experience with top-notch accessories for all your devices."
             icon="/icons/lightning-icon.svg"
             img="/images/product/market-img4.svg"
-            reverse={isSmallScreen ? false : true}
+            reverse={isSmallScreen || preTabScreen ? false : true}
           />
 
           <MarketplaceItems
@@ -536,7 +539,7 @@ export default function ProductPage() {
           </p>
         </div>
         <div className={styles.whyShopItems}>
-          {isSmallScreen || isTabScreen ? (
+          {isSmallScreen || isTabScreen || preTabScreen ? (
             <>
               <div className={styles.whyShopItemsContainer}>
                 <div className={styles.whyShopItemsGrid}>
@@ -566,7 +569,9 @@ export default function ProductPage() {
               </div>
               <div className={styles.whyShopItemsGridImages}>
                 <Image
-                  src={`/images/product/card${isTabScreen ? "-tab" : ""}.svg`}
+                  src={`/images/product/card${
+                    isTabScreen || preTabScreen ? "-tab" : ""
+                  }.svg`}
                   alt="community image"
                   layout="responsive"
                   width={500}
@@ -627,7 +632,7 @@ export default function ProductPage() {
             </>
           )}
         </div>
-        {!isTabScreen && <hr />}
+        {isSmallScreen && <hr />}
       </motion.section>
 
       <section id="section6" className={styles.products}>
