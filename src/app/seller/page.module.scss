@@ -1,4 +1,5 @@
 @use "/src/app/styles/constants";
+
 .main {
   .headBox {
     height: 50%;
@@ -99,6 +100,7 @@
     border-radius: 5px;
     cursor: pointer;
     width: auto;
+
     &:hover {
       scale: 1.05;
     }
@@ -127,7 +129,7 @@
     margin-bottom: 20px;
   }
 
-  .featuureSectionHeadingRightHeading {
+  .featureSectionHeadingRightHeading {
     font-size: 1.125rem;
     list-style-type: none;
     padding: 0;
@@ -258,6 +260,7 @@
     font-weight: 600;
     line-height: 1.5;
     text-align: left;
+
     &:hover {
       scale: 1.05;
     }
@@ -274,6 +277,7 @@
     font-weight: 600;
     line-height: 1.5;
     text-align: left;
+
     &:hover {
       scale: 1.05;
     }
@@ -321,13 +325,17 @@
   .stepcontainersinglebox {
     display: flex;
   }
+
   .stepcontainerline {
     flex-grow: 1;
     height: 2px;
-    background-color: #2c3e50; /* Color of the line */
-    margin: 0 10px; /* Space between icon and line */
+    background-color: #2c3e50;
+    /* Color of the line */
+    margin: 0 10px;
+    /* Space between icon and line */
     align-items: center;
   }
+
   .step {
     text-align: center;
     flex: 1;
@@ -402,6 +410,7 @@
     font-weight: 600;
     line-height: 1.5;
     text-align: left;
+
     &:hover {
       scale: 1.05;
     }
@@ -429,6 +438,248 @@
 
 @media only screen and (min-width: 320px) and (max-width: 480px) {
   .main {
+
+    padding: 64px 0;
+
+    .becomeaseller {
+      margin: 0;
+      padding: 64px 0;
+      max-width: 100%;
+      box-sizing: border-box;
+      gap: 0;
+
+      .firstBoxBecomeASeller {
+        box-sizing: border-box;
+        flex-direction: column;
+        margin: 0;
+        padding: 0 16px;
+
+        .featuresContainerLeft {
+          .featureTextContainer {
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+
+            .featureSectionDescription {
+              margin: 0;
+              font-size: 18px;
+              line-height: 28px;
+            }
+
+            .featureSectionTitle {
+              font-size: 36px;
+              line-height: 44px;
+            }
+          }
+        }
+
+        .featureContainerRight {
+          margin: 0;
+
+          .featuureSectionHeadingRight {
+            font-size: 18px;
+            line-height: 28px;
+
+          }
+
+          .featureSectionHeadingRightHeading {
+            .featureSectionRightLoveSavvyoList {
+              font-size: 18px;
+              line-height: 28px;
+            }
+          }
+
+          .featureSectionTextContainerButtons {
+            margin-top: 22px;
+            display: flex;
+            flex-direction: column;
+
+            .featureSectionBecomeASellerButton,
+            .featureSectionHowItWorksButton {
+              height: 48px;
+              font-family: constants.$inter;
+              font-size: 16px;
+              line-height: 24px;
+              width: 95%;
+              margin: 0 auto;
+            }
+          }
+        }
+      }
+
+      .contentMainImage {
+        border: 1px solid black;
+        height: 272px;
+        margin: 64px auto;
+        width: 375px;
+      }
+
+      .growBusiness {
+        padding: 64px 16px 48px;
+        gap: 32px;
+        margin: 0;
+
+        .growBusinessTitle {
+          font-size: 30px;
+          line-height: 38px;
+        }
+
+        .growBusinessDescription {
+          font-size: 18px;
+          line-height: 28px;
+        }
+      }
+
+      .stepsContainer {
+        display: flex;
+        flex-direction: column;
+        gap: 24px;
+        padding: 64px 16px;
+        width: 100%;
+        box-sizing: border-box;
+
+        .growBusinessBox {
+          box-sizing: border-box;
+          width: calc(100vw - 32px);
+          margin-bottom: 24px;
+
+          .growBusinessBoxIcon {
+            margin: 0;
+          }
+
+          .growBoxTitle {
+            margin-top: 40px;
+            font-size: 18px;
+            line-height: 28px;
+          }
+
+          .growBoxDescription {
+            font-size: 16px;
+            line-height: 24px;
+          }
+        }
+      }
+
+      .thirdSection {
+        flex-direction: column;
+        background-color: #fff;
+        padding: 64px 16px;
+        margin: 0;
+        gap: 32px;
+
+        .thirdsectionLeft {
+          margin: 0;
+          display: flex;
+          flex-direction: column;
+          gap: 16px;
+          .ctaTitle {
+            font-size: 30px;
+            line-height: 38px;
+            margin: 0;
+          }
+          .ctaDescription {
+            font-size: 18px;
+            line-height: 28px;
+            margin: 0;
+          }
+        }
+
+        .ctaButtons {
+          display: flex;
+          flex-direction: column;
+
+          .whySavvyoButton, .getStartedButton {
+            text-align: center;
+            width: 95%;
+          }
+        }
+      }
+
+      .howItWorks {
+        padding: 64px 16px 0;
+        .howitworktitle {
+          font-size: 14px;
+          line-height: 20px;
+        }
+
+        .howitworkheading {
+          font-size: 30px;
+          line-height: 38px;
+          padding-top: 12px;
+        }
+        
+        .howitworkdescription {
+          font-size: 18px;
+          line-height: 28px;
+          padding-top: 32px;
+        }
+      }
+
+      .stepsContainer {
+        gap: 0;
+        .stepcontainersinglebox {
+          width: 100%;
+          .step {
+            display: flex;
+            gap: 12px;
+            max-width: 100%;
+            text-align: left;
+
+            .stepDesc {
+              padding: 4px 0 24px 0;
+              .title {
+                font-weight: 600;
+                font-size: 14px;
+                line-height: 20px;
+                margin: 0;
+              }
+
+              .description {
+                font-size: 14px;
+                line-height: 20px;
+              }
+            }
+          }
+        }
+      }
+
+      .fourthSection {
+        padding: 0 16px;
+        background-color: #fff;
+        margin: 64px auto;
+        
+        .fourthSectionSection {
+          padding: 40px 24px;
+          background-color: #f9fafb;
+
+          .fourthsectionTop {
+            .fourthSectionTitle {
+              font-weight: 600;
+              font-size: 30px;
+              line-height: 38px;
+              margin-bottom: 16px;
+            }
+
+            .fourthSectionDescription {
+              font-size: 18px;
+              line-height: 28px;
+              margin-bottom: 32px;
+            }
+          }
+
+          .fourthButtons {
+            font-size: 16px;
+            line-height: 24px;
+            display: flex;
+            flex-direction: column;
+            .fourthSectionAboutUs, .fourthSectionContactUs {
+              text-align: center;
+            }
+          }
+        }
+      }
+    }
+
     .headBox {
       display: flex;
       align-items: flex-start;

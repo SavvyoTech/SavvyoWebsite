@@ -122,24 +122,27 @@ export default function SellerForm() {
                 platform offers unique benefits designed to maximize your
                 profits and simplify your business operations.
               </p>
-              <div className={styles.featureSectionTextContainerButtons}>
-                <button
-                  className={styles.featureSectionBecomeASellerButton}
-                  onClick={scrollToSellerForm}
-                >
-                  Become a seller
-                </button>
-                <button className={styles.featureSectionHowItWorksButton}>
-                  <a href="#howitworks">How it works</a>{" "}
-                </button>
-              </div>
+
+              {!isSmallScreen &&
+                <div className={styles.featureSectionTextContainerButtons}>
+                  <button
+                    className={styles.featureSectionBecomeASellerButton}
+                    onClick={scrollToSellerForm}
+                  >
+                    Become a seller
+                  </button>
+                  <button className={styles.featureSectionHowItWorksButton}>
+                    <a href="#howitworks">How it works</a>{" "}
+                  </button>
+                </div>
+              }
             </div>
           </div>
           <div className={styles.featureContainerRight}>
             <div className={styles.featuureSectionHeadingRight}>
               Why Sellers Love SAVVYO
             </div>
-            <ul className={styles.featuureSectionHeadingRightHeading}>
+            <ul className={styles.featureSectionHeadingRightHeading}>
               <li className={styles.featureSectionRightLoveSavvyoList}>
                 <span className={styles.featureSectionRightCheckbox}>
                   <Image
@@ -160,7 +163,7 @@ export default function SellerForm() {
                     height={32}
                   />
                 </span>
-                Lowest Shipping Costs
+                Next Day Dispatch Program
               </li>
               <li className={styles.featureSectionRightLoveSavvyoList}>
                 <span className={styles.featureSectionRightCheckbox}>
@@ -171,7 +174,7 @@ export default function SellerForm() {
                     height={32}
                   />
                 </span>
-                Lowest Shipping Costs
+                Advertising Tools
               </li>
               <li className={styles.featureSectionRightLoveSavvyoList}>
                 <span className={styles.featureSectionRightCheckbox}>
@@ -182,9 +185,22 @@ export default function SellerForm() {
                     height={32}
                   />
                 </span>
-                Lowest Shipping Costs
+                Business Insights
               </li>
             </ul>
+            {isSmallScreen &&
+              <div className={styles.featureSectionTextContainerButtons}>
+                <button
+                  className={styles.featureSectionBecomeASellerButton}
+                  onClick={scrollToSellerForm}
+                >
+                  Get Started
+                </button>
+                <button className={styles.featureSectionHowItWorksButton}>
+                  <a href="#howitworks">How it works</a>{" "}
+                </button>
+              </div>
+            }
           </div>
         </div>
 
@@ -193,8 +209,8 @@ export default function SellerForm() {
           <Image
             src="/images/Content.svg"
             alt="Contentimage"
-            width={1200}
-            height={450}
+            width={isSmallScreen ? 375 : 1200}
+            height={isSmallScreen ? 272 : 450}
             layout="responsive"
           />
         </div>
@@ -288,21 +304,37 @@ export default function SellerForm() {
             </p>
           </div>
           <div className={styles.ctaButtons}>
-            <button className={styles.whySavvyoButton}>
-              Why Savvyo?
-              {/* <Link href="/about"><Button>About Us</Button></Link> */}
-            </button>
-            <button
-              className={styles.getStartedButton}
-              onClick={scrollToSellerForm}
-            >
-              Get Started
-            </button>
+            {isSmallScreen ?
+              <>
+                <button
+                  className={styles.getStartedButton}
+                  onClick={scrollToSellerForm}
+                >
+                  Get Started
+                </button>
+                <button className={styles.whySavvyoButton}>
+                  Why Savvyo?
+                  {/* <Link href="/about"><Button>About Us</Button></Link> */}
+                </button>
+              </> :
+              <>
+                <button className={styles.whySavvyoButton}>
+                  Why Savvyo?
+                  {/* <Link href="/about"><Button>About Us</Button></Link> */}
+                </button>
+                <button
+                  className={styles.getStartedButton}
+                  onClick={scrollToSellerForm}
+                >
+                  Get Started
+                </button>
+              </>
+            }
           </div>
         </section>
 
         {/* how it works */}
-        <section id="howitworks">
+        <section id="howitworks" className={styles.howItWorks}>
           <div className={styles.howitworktitle}>How it works</div>
           <div className={styles.howitworkheading}>
             Keep 100% of your earnings with our zero commission policy
@@ -326,13 +358,15 @@ export default function SellerForm() {
                   height={48}
                 />
               </div>
-              <div className={styles.title}>Create Account</div>
-              <p className={styles.description}>
-                Provide your GSTIN (for GST sellers) or Enrolment ID / UIN (for
-                non-GST sellers) & Link your bank account.
-              </p>
+              <div className={styles.stepDesc}>
+                <div className={styles.title}>Create Account</div>
+                <p className={styles.description}>
+                  Provide your GSTIN (for GST sellers) or Enrolment ID / UIN (for
+                  non-GST sellers) & Link your bank account.
+                </p>
+              </div>
             </div>
-            <div className={styles.stepcontainerline}></div>
+            {!isSmallScreen && <div className={styles.stepcontainerline}></div>}
           </div>
 
           <div className={styles.stepcontainersinglebox}>
@@ -345,12 +379,14 @@ export default function SellerForm() {
                   height={48}
                 />
               </div>
-              <div className={styles.title}>List Products</div>
-              <p className={styles.description}>
-                Add the products you want to sell in your seller dashboard.
-              </p>
+              <div className={styles.stepDesc}>
+                <div className={styles.title}>List Products</div>
+                <p className={styles.description}>
+                  Add the products you want to sell in your seller dashboard.
+                </p>
+              </div>
             </div>
-            <div className={styles.stepcontainerline}></div>
+            {!isSmallScreen && <div className={styles.stepcontainerline}></div>}
           </div>
 
           <div className={styles.stepcontainersinglebox}>
@@ -363,12 +399,14 @@ export default function SellerForm() {
                   height={48}
                 />
               </div>
-              <div className={styles.title}>Get Orders</div>
-              <p className={styles.description}>
-                Start receiving orders from millions of SAVVYO users.
-              </p>
+              <div className={styles.stepDesc}>
+                <div className={styles.title}>Get Orders</div>
+                <p className={styles.description}>
+                  Start receiving orders from millions of SAVVYO users.
+                </p>
+              </div>
             </div>
-            <div className={styles.stepcontainerline}></div>
+            {!isSmallScreen && <div className={styles.stepcontainerline}></div>}
           </div>
 
           <div className={styles.stepcontainersinglebox}>
@@ -381,12 +419,14 @@ export default function SellerForm() {
                   height={48}
                 />
               </div>
-              <div className={styles.title}>Lowest Cost Shipping</div>
-              <p className={styles.description}>
-                Enjoy the lowest shipping costs across India.
-              </p>
+              <div className={styles.stepDesc}>
+                <div className={styles.title}>Lowest Cost Shipping</div>
+                <p className={styles.description}>
+                  Enjoy the lowest shipping costs across India.
+                </p>
+              </div>
             </div>
-            <div className={styles.stepcontainerline}></div>
+            {!isSmallScreen && <div className={styles.stepcontainerline}></div>}
           </div>
 
           <div className={styles.stepcontainersinglebox}>
@@ -399,34 +439,48 @@ export default function SellerForm() {
                   height={48}
                 />
               </div>
-              <div className={styles.title}>Receive Payments</div>
-              <p className={styles.description}>
-                Payments are processed and deposited directly into your bank
-                account within 7 days of delivery.
-              </p>
+              <div className={styles.stepDesc}>
+                <div className={styles.title}>Receive Payments</div>
+                <p className={styles.description}>
+                  Payments are processed and deposited directly into your bank
+                  account within 7 days of delivery.
+                </p>
+              </div>
             </div>
-            <div className={styles.stepcontainerline}></div>
+            {!isSmallScreen && <div className={styles.stepcontainerline}></div>}
           </div>
         </div>
 
         {/* fourth section */}
         <section className={styles.fourthSection}>
-          <div className={styles.fourthsectionTop}>
-            <div className={styles.fourthSectionTitle}>
-              SAVVYO Seller Support
+          <div className={styles.fourthSectionSection}>
+            <div className={styles.fourthsectionTop}>
+              <div className={styles.fourthSectionTitle}>
+                SAVVYO Seller Support
+              </div>
+              <p className={styles.fourthSectionDescription}>
+                Our dedicated support team is here to assist you at any time
+              </p>
             </div>
-            <p className={styles.fourthSectionDescription}>
-              Our dedicated support team is here to assist you at any time
-            </p>
-          </div>
-          <div className={styles.fourthButtons}>
-            <Link href="/about" className={styles.fourthSectionAboutUs}>
-              About us
-            </Link>
+            {isSmallScreen? 
+              <div className={styles.fourthButtons}>
+                <Link href="/about" className={styles.fourthSectionContactUs}>
+                  Contact us
+                </Link>
+                <Link href="/about" className={styles.fourthSectionAboutUs}>
+                  About us
+                </Link>
+              </div> :
+              <div className={styles.fourthButtons}>
+                <Link href="/about" className={styles.fourthSectionAboutUs}>
+                  About us
+                </Link>
 
-            <Link href="/about" className={styles.fourthSectionContactUs}>
-              Contact us
-            </Link>
+                <Link href="/about" className={styles.fourthSectionContactUs}>
+                  Contact us
+                </Link>
+              </div>
+            }
           </div>
         </section>
       </div>
