@@ -82,6 +82,9 @@ export default function SellerForm() {
   const isSmallScreen = useMediaQuery(
     "(min-width: 320px) and (max-width: 480px)"
   );
+  const isTabScreen = useMediaQuery(
+    "(min-width: 768px) and (max-width: 1024px)"
+  );
   const scrollToSellerForm = () => {
     if (sellerRef.current) {
       sellerRef.current.scrollIntoView({ behavior: "smooth" });
@@ -366,7 +369,7 @@ export default function SellerForm() {
                 </p>
               </div>
             </div>
-            {!isSmallScreen && <div className={styles.stepcontainerline}></div>}
+            {!isSmallScreen && !isTabScreen && <div className={styles.stepcontainerline}></div>}
           </div>
 
           <div className={styles.stepcontainersinglebox}>
@@ -386,7 +389,7 @@ export default function SellerForm() {
                 </p>
               </div>
             </div>
-            {!isSmallScreen && <div className={styles.stepcontainerline}></div>}
+            {!isSmallScreen && !isTabScreen && <div className={styles.stepcontainerline}></div>}
           </div>
 
           <div className={styles.stepcontainersinglebox}>
@@ -406,7 +409,7 @@ export default function SellerForm() {
                 </p>
               </div>
             </div>
-            {!isSmallScreen && <div className={styles.stepcontainerline}></div>}
+            {!isSmallScreen && !isTabScreen && <div className={styles.stepcontainerline}></div>}
           </div>
 
           <div className={styles.stepcontainersinglebox}>
@@ -426,7 +429,7 @@ export default function SellerForm() {
                 </p>
               </div>
             </div>
-            {!isSmallScreen && <div className={styles.stepcontainerline}></div>}
+            {!isSmallScreen && !isTabScreen && <div className={styles.stepcontainerline}></div>}
           </div>
 
           <div className={styles.stepcontainersinglebox}>
@@ -447,7 +450,7 @@ export default function SellerForm() {
                 </p>
               </div>
             </div>
-            {!isSmallScreen && <div className={styles.stepcontainerline}></div>}
+            {!isSmallScreen && !isTabScreen && <div className={styles.stepcontainerline}></div>}
           </div>
         </div>
 
