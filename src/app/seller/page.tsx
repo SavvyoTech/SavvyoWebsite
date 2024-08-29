@@ -210,7 +210,7 @@ export default function SellerForm() {
         <div className={styles.contentMainImage}>
           {/* C:\Users\asus\Downloads\SavvyoWebsite-main (1)\SavvyoWebsite-main\public\images\Content.svg */}
           <Image
-            src="/images/Content.svg"
+            src={isSmallScreen? "/images/become-a-seller-mobile.svg" : "/images/Content.svg"}
             alt="Contentimage"
             width={isSmallScreen ? 375 : 1200}
             height={isSmallScreen ? 272 : 450}

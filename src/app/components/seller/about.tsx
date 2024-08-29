@@ -91,7 +91,7 @@ export function AboutForm({ handleNext, handleFormData }: AboutFormProps) {
       </Box>
 
       <Box>
-        <Button variant="contained" color="primary" type="submit" fullWidth>
+        <Button className={styles.continueBtn} variant="contained" color="primary" type="submit" fullWidth>
           Continue
         </Button>
       </Box>
